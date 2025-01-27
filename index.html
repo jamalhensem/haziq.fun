@@ -53,10 +53,26 @@
             text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s ease;
+            position: relative; /* Required for underline effect */
         }
 
         .main-nav a:hover {
             color: #B22222;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #B22222;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
         }
 
         .main-nav .logo {
@@ -354,7 +370,7 @@
             <h1>MUHAMMAD HAZIQ DANIAL</h1>
             <h2>WEB DESIGNER | GAME DESIGNER</h2>
             <a href="https://www.canva.com/design/DAGdM_bAhKk/Qg1SMAWj63Lm8Y9oqW8LNA/edit?utm_content=DAGdM_bAhKk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
-                <button>Resume and CV</button>
+                <button>Resume</button>
             </a>
         </div>
     </section>
@@ -367,6 +383,7 @@
             <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and Contentpreneurship (MC111). 
 			
 			I could speak 3 languages which is Malay (native), English (Advanced) and Japanese (Intermidate). I am also learning Malay sign language.</p>
+            <a href="#contact"><button>CONTACT ME</button></a>
         </div>
     </section>
 
@@ -445,6 +462,9 @@
             </a>
             <a href="https://www.linkedin.com/in/haziq-danial-4a1328305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
                 <img src="img/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0" target="_blank">
+                <img src="img/whatsapp.png" alt="WhatsApp">
             </a>
         </div>
     </section>
