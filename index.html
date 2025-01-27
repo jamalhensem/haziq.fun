@@ -144,13 +144,15 @@
             height: 150px; /* Fixed height */
             position: relative; /* Added for level positioning */
             box-shadow: 0 0 10px rgba(255, 69, 0, 0); /* Initial glow effect */
+            outline: 2px solid transparent; /* Add transparent outline */
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             background-color: #B22222; /* Dark red for hover */
             color: #fff; /* White text */
-            box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glow effect on hover */
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); /* Darker glow effect on hover */
+            outline: 2px solid #B22222; /* Outline for containers */
         }
 
         .service-card img {
@@ -161,7 +163,6 @@
             background-color: #555; /* Dark gray for icons */
             object-fit: cover; /* Ensure images don't stretch */
             transition: filter 0.3s ease; /* Add transition for filter */
-            outline: 2px solid #B22222; /* Outline for icons */
         }
 
         .service-card:hover img {
@@ -217,7 +218,6 @@
         .popup-content img {
             width: 150px;
             border-radius: 10px;
-            outline: 2px solid #B22222; /* Outline for popup images */
         }
 
         .popup-content h3 {
@@ -265,7 +265,6 @@
             height: 50px;
             cursor: pointer;
             transition: transform 0.3s ease;
-            outline: 2px solid #B22222; /* Outline for contact icons */
         }
 
         .contact-container img:hover {
@@ -287,7 +286,6 @@
         .about img {
             width: 300px; /* Increased image size */
             border-radius: 10px;
-            outline: 2px solid #B22222; /* Outline for about me image */
         }
 
         .about h2 {
