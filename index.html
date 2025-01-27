@@ -102,7 +102,7 @@
         }
 
         /* Skills and Experience Sections */
-        .skills, .experience, .my-work, .contact, .about {
+        .skills, .experience, .my-work, .about {
             margin: 50px 0;
             padding: 20px 0; /* Add padding to the top and bottom of sections */
         }
@@ -117,10 +117,6 @@
 
         .my-work {
             background-color: #262626; /* Slightly lighter dark grey */
-        }
-
-        .contact {
-            background-color: #1a1a1a; /* Dark grey background */
         }
 
         .about {
@@ -234,15 +230,14 @@
             cursor: pointer;
         }
 
-        /* Contact Section */
-        .contact {
-            margin: 50px auto;
+        /* Footer Styles */
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px 0;
             text-align: center;
-            padding: 20px;
-            background-color: #1a1a1a; /* Dark grey background */
         }
 
-        .contact p {
+        footer p {
             margin: 20px auto;
             font-size: 1.1rem;
             max-width: 600px;
@@ -452,8 +447,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Footer Section -->
+    <footer id="contact">
         <h2>Contact Me</h2>
         <p>Feel free to reach out to me for any inquiries or collaborations.</p>
         <div class="contact-container">
@@ -464,10 +459,10 @@
                 <img src="img/linkedin.png" alt="LinkedIn">
             </a>
             <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
             </a>
         </div>
-    </section>
+    </footer>
 
     <!-- Popup Templates -->
     <div id="popup" class="popup">
@@ -586,6 +581,22 @@
             videoPlayer.poster = videos[prevKey].thumbnail;
             videoPlayer.play();
         }
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
