@@ -109,7 +109,7 @@
         }
 
         .skills {
-            background-color: #262626; /* Slightly lighter dark grey */
+            background-color: #000; /* Black background */
         }
 
         .experience {
@@ -143,12 +143,14 @@
             width: 200px; /* Fixed width */
             height: 150px; /* Fixed height */
             position: relative; /* Added for level positioning */
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0); /* Initial glow effect */
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             background-color: #B22222; /* Dark red for hover */
             color: #fff; /* White text */
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glow effect on hover */
         }
 
         .service-card img {
@@ -158,6 +160,12 @@
             border-radius: 5px;
             background-color: #555; /* Dark gray for icons */
             object-fit: cover; /* Ensure images don't stretch */
+            transition: filter 0.3s ease; /* Add transition for filter */
+            outline: 2px solid #B22222; /* Outline for icons */
+        }
+
+        .service-card:hover img {
+            filter: brightness(1.5); /* Make icons lit up on hover */
         }
 
         .service-card h3 {
@@ -177,6 +185,7 @@
             bottom: 0; /* Position at the bottom */
             left: 0; /* Position at the left */
             right: 0; /* Position at the right */
+            background: none; /* Remove the black background */
         }
 
         /* Popup Styles */
@@ -208,6 +217,7 @@
         .popup-content img {
             width: 150px;
             border-radius: 10px;
+            outline: 2px solid #B22222; /* Outline for popup images */
         }
 
         .popup-content h3 {
@@ -255,6 +265,7 @@
             height: 50px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            outline: 2px solid #B22222; /* Outline for contact icons */
         }
 
         .contact-container img:hover {
@@ -276,6 +287,7 @@
         .about img {
             width: 300px; /* Increased image size */
             border-radius: 10px;
+            outline: 2px solid #B22222; /* Outline for about me image */
         }
 
         .about h2 {
@@ -514,16 +526,16 @@
 
         const videos = {
             tokmat: {
-                src: "Services - Brave 2024-12-31 05-12-59.mp4",
-                thumbnail: "logo.png"
+                src: "videos/Services - Brave 2024-12-31 05-12-59.mp4",
+                thumbnail: "img/logo.png"
             },
             silent: {
-                src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
-                thumbnail: "poster landscape.png"
+                src: "videos/MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
+                thumbnail: "img/poster landscape.png"
             },
             portfolio: {
-                src: "Adobe XD 2025-01-25 22-15-40.mp4",
-                thumbnail: "Screenshot 2025-01-25 230722.png"
+                src: "videos/Adobe XD 2025-01-25 22-15-40.mp4",
+                thumbnail: "img/Screenshot 2025-01-25 230722.png"
             }
         };
 
@@ -596,10 +608,11 @@
 
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
+                const headerOffset = targetElement.querySelector('h2').offsetTop;
 
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: headerOffset,
                         behavior: 'smooth'
                     });
                 }
