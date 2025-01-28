@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haziq-Portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="css/basic.css">
     <style>
         /* General Styles */
@@ -213,6 +213,7 @@
             max-width: 600px;
             width: 80%;
             text-align: left;
+            position: relative;
         }
 
         .popup-content img {
@@ -238,6 +239,78 @@
             font-size: 24px;
             border: none;
             cursor: pointer;
+        }
+
+        .popup-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .popup-images img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .popup-images img:hover {
+            transform: scale(1.2);
+        }
+
+        .popup-image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .popup-image-container img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .popup-image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .popup-image-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-next {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #B22222;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-next:hover {
+            background-color: #FF4500;
         }
 
         /* Footer Styles */
@@ -484,7 +557,14 @@
                 <p id="popup-description"></p>
             </div>
             <button class="popup-close" onclick="hidePopup()">&times;</button>
+            <div id="popup-images" class="popup-images"></div>
+            <button id="popup-next" class="popup-next" style="display: none;" onclick="nextPopup()">Next</button>
         </div>
+    </div>
+
+    <div id="popup-image-container" class="popup-image-container">
+        <img id="popup-image" src="" alt="Popup Image">
+        <button class="popup-image-close" onclick="hidePopupImage()">&times;</button>
     </div>
 
     <!-- Video Popup -->
@@ -504,22 +584,26 @@
             subway: {
                 img: "img/Subway Choicemark.png",
                 title: "Subway",
-                description: "Experience in fast-paced food service, customer service excellence, and teamwork."
+                description: "Experience in fast-paced food service, customer service excellence, and teamwork.",
+                images: ["img/subway1.jpg", "img/subway2.jpg", "img/subway3.jpg"]
             },
             delilits: {
                 img: "img/delilits.png",
                 title: "Delilits",
-                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available)."
+                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available).",
+                images: ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg", "img/7.jpg", "img/8.jpg"]
             },
             tetrabit: {
                 img: "img/TetraBit2.png",
                 title: "TETRABIT25",
-                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. And for the event, I am also a developer for the game SILENT RESISTANCE to be one of the games for the exhibition. "
+                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition. ",
+                images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
             },
             sepresi: {
                 img: "img/sepresi.jpg",
                 title: "Sepresi",
-                description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket."
+                description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
+                images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
             }
         };
 
@@ -540,22 +624,63 @@
 
         let currentVideoIndex = 0;
         const videoKeys = Object.keys(videos);
+        let currentPopupKey = null;
+        let currentImageIndex = 0;
 
         function showPopup(key) {
             const popup = document.getElementById('popup');
             const img = document.getElementById('popup-img');
             const title = document.getElementById('popup-title');
             const description = document.getElementById('popup-description');
+            const popupImagesContainer = document.getElementById('popup-images');
+            const popupNextButton = document.getElementById('popup-next');
 
             img.src = experiences[key].img;
             title.textContent = experiences[key].title;
             description.textContent = experiences[key].description;
+            popupImagesContainer.innerHTML = '';
+            currentPopupKey = key;
+
+            if (experiences[key].images && experiences[key].images.length > 0) {
+                experiences[key].images.forEach((image, index) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image;
+                    imgElement.alt = `Image ${index + 1}`;
+                    imgElement.onclick = () => showPopupImage(image);
+                    popupImagesContainer.appendChild(imgElement);
+                });
+                popupNextButton.style.display = 'block';
+            } else {
+                popupNextButton.style.display = 'none';
+            }
 
             popup.style.display = 'flex';
         }
 
         function hidePopup() {
             document.getElementById('popup').style.display = 'none';
+            currentPopupKey = null;
+        }
+
+        function nextPopup() {
+            if (currentPopupKey) {
+                const keys = Object.keys(experiences);
+                const currentIndex = keys.indexOf(currentPopupKey);
+                const nextIndex = (currentIndex + 1) % keys.length;
+                const nextKey = keys[nextIndex];
+                showPopup(nextKey);
+            }
+        }
+
+        function showPopupImage(imageSrc) {
+            const popupImageContainer = document.getElementById('popup-image-container');
+            const popupImage = document.getElementById('popup-image');
+            popupImage.src = imageSrc;
+            popupImageContainer.style.display = 'flex';
+        }
+
+        function hidePopupImage() {
+            document.getElementById('popup-image-container').style.display = 'none';
         }
 
         function showVideoPopup(key) {
@@ -615,14 +740,26 @@
 
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
+                const headerOffset = targetElement.offsetTop;
 
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: headerOffset,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        window.addEventListener('click', function(event) {
+            const popup = document.getElementById('popup');
+            const popupImageContainer = document.getElementById('popup-image-container');
+            if (event.target === popup) {
+                hidePopup();
+            }
+            if (event.target === popupImageContainer) {
+                hidePopupImage();
+            }
         });
     </script>
 </body>
