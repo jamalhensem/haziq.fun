@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Haziq-Portfolio</title>
     <link rel="stylesheet" href="css/basic.css">
     <style>
         /* General Styles */
@@ -160,9 +160,9 @@
             height: 80px;
             margin-bottom: 10px;
             border-radius: 5px;
-            background-color: #555; /* Dark gray for icons */
             object-fit: cover; /* Ensure images don't stretch */
             transition: filter 0.3s ease; /* Add transition for filter */
+            background-color: transparent; /* Remove background color */
         }
 
         .service-card:hover img {
@@ -281,6 +281,7 @@
             gap: 20px;
             align-items: center;
             background-color: #262626; /* Slightly lighter dark grey */
+            border-radius: 10px; /* Rounded edges for the about section */
         }
 
         .about img {
@@ -388,7 +389,7 @@
             <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and Contentpreneurship (MC111). 
 			
 			I could speak 3 languages which is Malay (native), English (Advanced) and Japanese (Intermidate). I am also learning Malay sign language.</p>
-            <a href="#contact"><button>CONTACT ME</button></a>
+            <button onclick="scrollToContact()">CONTACT ME</button>
         </div>
     </section>
 
@@ -420,7 +421,7 @@
         <h2>Experience</h2>
         <div class="services-container">
             <div class="service-card" onclick="showPopup('subway')">
-                <img src="img/Subway Choicemark.png" alt="Subway">
+                <img src="img/Subway Choicemark.png" alt="Subway" style="object-fit: contain;">
                 <h3>Subway</h3>
             </div>
             <div class="service-card" onclick="showPopup('delilits')">
@@ -513,7 +514,7 @@
             tetrabit: {
                 img: "img/TetraBit2.png",
                 title: "TETRABIT25",
-                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. "
+                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. And for the event, I am also a developer for the game SILENT RESISTANCE to be one of the games for the exhibition. "
             },
             sepresi: {
                 img: "img/sepresi.jpg",
@@ -600,17 +601,24 @@
             });
         }
 
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            window.scrollTo({
+                top: contactSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                const headerOffset = targetElement.querySelector('h2').offsetTop;
 
                 if (targetElement) {
                     window.scrollTo({
-                        top: headerOffset,
+                        top: targetElement.offsetTop,
                         behavior: 'smooth'
                     });
                 }
