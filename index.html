@@ -298,6 +298,25 @@
             cursor: pointer;
         }
 
+        .popup-image-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .popup-image-controls button {
+            background-color: #B22222;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-image-controls button:hover {
+            background-color: #FF4500;
+        }
+
         .popup-next {
             position: absolute;
             bottom: 20px;
@@ -565,7 +584,11 @@
 
     <div id="popup-image-container" class="popup-image-container">
         <img id="popup-image" src="" alt="Popup Image">
-        <button class="popup-image-close" onclick="hidePopupImage()">&times;</button>
+        <div class="popup-image-controls">
+            <button onclick="previousPopupImage()">Previous</button>
+            <button onclick="hidePopupImage()">&times;</button>
+            <button onclick="nextPopupImage()">Next</button>
+        </div>
     </div>
 
     <!-- Video Popup -->
@@ -627,6 +650,7 @@
         const videoKeys = Object.keys(videos);
         let currentPopupKey = null;
         let currentImageIndex = 0;
+        let currentPopupImageIndex = 0;
 
         function showPopup(key) {
             const popup = document.getElementById('popup');
@@ -641,13 +665,18 @@
             description.textContent = experiences[key].description;
             popupImagesContainer.innerHTML = '';
             currentPopupKey = key;
+            currentPopupImageIndex = 0;
 
             if (experiences[key].images && experiences[key].images.length > 0) {
-                experiences[key].images.forEach((image, index) => {
+                let imagesToDisplay = experiences[key].images;
+                if (key === 'delilits') {
+                    imagesToDisplay = experiences[key].images.slice(0, 4);
+                }
+                imagesToDisplay.forEach((image, index) => {
                     const imgElement = document.createElement('img');
                     imgElement.src = image;
                     imgElement.alt = `Image ${index + 1}`;
-                    imgElement.onclick = () => showPopupImage(image);
+                    imgElement.onclick = () => showPopupImage(key, index);
                     popupImagesContainer.appendChild(imgElement);
                 });
                 popupNextButton.style.display = 'block';
@@ -673,15 +702,35 @@
             }
         }
 
-        function showPopupImage(imageSrc) {
+        function showPopupImage(key, index) {
             const popupImageContainer = document.getElementById('popup-image-container');
             const popupImage = document.getElementById('popup-image');
-            popupImage.src = imageSrc;
+            popupImage.src = experiences[key].images[index];
             popupImageContainer.style.display = 'flex';
+            currentPopupImageIndex = index;
+            currentPopupKey = key;
         }
 
         function hidePopupImage() {
             document.getElementById('popup-image-container').style.display = 'none';
+        }
+
+        function nextPopupImage() {
+            if (currentPopupKey) {
+                const images = experiences[currentPopupKey].images;
+                currentPopupImageIndex = (currentPopupImageIndex + 1) % images.length;
+                const popupImage = document.getElementById('popup-image');
+                popupImage.src = images[currentPopupImageIndex];
+            }
+        }
+
+        function previousPopupImage() {
+            if (currentPopupKey) {
+                const images = experiences[currentPopupKey].images;
+                currentPopupImageIndex = (currentPopupImageIndex - 1 + images.length) % images.length;
+                const popupImage = document.getElementById('popup-image');
+                popupImage.src = images[currentPopupImageIndex];
+            }
         }
 
         function showVideoPopup(key) {
