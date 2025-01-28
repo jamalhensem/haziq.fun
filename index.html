@@ -208,7 +208,8 @@
             padding: 20px;
             border-radius: 10px;
             display: flex;
-            gap: 20px;
+            flex-direction: column; /* Stack content vertically */
+            gap: 10px;
             align-items: center;
             max-width: 600px;
             width: 80%;
@@ -556,8 +557,8 @@
                 <h3 id="popup-title"></h3>
                 <p id="popup-description"></p>
             </div>
-            <button class="popup-close" onclick="hidePopup()">&times;</button>
             <div id="popup-images" class="popup-images"></div>
+            <button class="popup-close" onclick="hidePopup()">&times;</button>
             <button id="popup-next" class="popup-next" style="display: none;" onclick="nextPopup()">Next</button>
         </div>
     </div>
@@ -754,11 +755,15 @@
         window.addEventListener('click', function(event) {
             const popup = document.getElementById('popup');
             const popupImageContainer = document.getElementById('popup-image-container');
+            const videoPopup = document.getElementById('video-popup');
             if (event.target === popup) {
                 hidePopup();
             }
             if (event.target === popupImageContainer) {
                 hidePopupImage();
+            }
+            if (event.target === videoPopup) {
+                hideVideoPopup();
             }
         });
     </script>
