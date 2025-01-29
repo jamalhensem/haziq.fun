@@ -208,9 +208,7 @@
             padding: 20px;
             border-radius: 10px;
             display: flex;
-            flex-direction: column; /* Stack content vertically */
-            gap: 10px;
-            align-items: center;
+            align-items: flex-start; /* Align items to the start */
             max-width: 600px;
             width: 80%;
             text-align: left;
@@ -230,17 +228,6 @@
 
         .popup-content p {
             margin: 10px 0 0;
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            color: #fff; /* White text */
-            font-size: 24px;
-            border: none;
-            cursor: pointer;
         }
 
         .popup-images {
@@ -286,57 +273,6 @@
 
         .popup-image-container img:hover {
             transform: scale(1);
-        }
-
-        .popup-image-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            color: #fff;
-            font-size: 24px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .popup-image-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .popup-image-controls button {
-            background-color: #B22222;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 20px;
-        }
-
-        .popup-image-controls button:hover {
-            background-color: #FF4500;
-        }
-
-        .popup-next {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: #B22222;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .popup-next:hover {
-            background-color: #FF4500;
         }
 
         /* Footer Styles */
@@ -576,25 +512,19 @@
 
     <!-- Popup Templates -->
     <div id="popup" class="popup">
-        <div class="popup-content" style="display: flex; align-items: flex-start;">
-            <img id="popup-img" src="" alt="Experience" style="width: 150px; height: auto; margin-right: 20px;">
-            <div style="flex: 1;">
+        <div class="popup-content">
+            <img id="popup-img" src="" alt="Experience">
+            <div>
                 <h3 id="popup-title"></h3>
                 <p id="popup-description"></p>
                 <p id="delilits-link" style="display: none;">For the full layout of the website <a href="https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">click here</a>.</p>
-                <div id="popup-images" class="popup-images" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;"></div>
+                <div id="popup-images" class="popup-images"></div>
             </div>
-            <button class="popup-close" onclick="hidePopup()" style="display: none;">&times;</button>
         </div>
     </div>
 
     <div id="popup-image-container" class="popup-image-container">
         <img id="popup-image" src="" alt="Popup Image">
-        <div class="popup-image-controls">
-            <button onclick="previousPopupImage()">&#8592;</button>
-            <button onclick="hidePopupImage()">&times;</button>
-            <button onclick="nextPopupImage()">&#8594;</button>
-        </div>
     </div>
 
     <!-- Video Popup -->
@@ -656,8 +586,6 @@
         const videoKeys = Object.keys(videos);
         let currentPopupKey = null;
         let currentImageIndex = 0;
-        let currentPopupImageIndex = 0;
-        let delilitsPreviewStartIndex = 0;
 
         function showPopup(key) {
             const popup = document.getElementById('popup');
@@ -665,70 +593,36 @@
             const title = document.getElementById('popup-title');
             const description = document.getElementById('popup-description');
             const popupImagesContainer = document.getElementById('popup-images');
-            const delilitsLink = document.getElementById('delilits-link');
 
             img.src = experiences[key].img;
             title.textContent = experiences[key].title;
             description.innerHTML = experiences[key].description;
             popupImagesContainer.innerHTML = '';
 
-            if (key === 'delilits') {
-                delilitsLink.style.display = 'block';
-                img.style.display = 'block'; // Show logo
-                description.innerHTML = experiences[key].description; // Show description only
-            } else {
-                delilitsLink.style.display = 'none';
-                if (experiences[key].images && experiences[key].images.length > 0) {
-                    experiences[key].images.forEach((image) => {
-                        const imgElement = document.createElement('img');
-                        imgElement.src = image;
-                        imgElement.alt = "Experience Image";
-                        imgElement.style.width = "100px"; // Set width for images
-                        imgElement.style.height = "100px"; // Set height for images
-                        imgElement.style.objectFit = "cover"; // Maintain aspect ratio
-                        imgElement.onclick = () => showPopupImage(key, index);
-                        popupImagesContainer.appendChild(imgElement);
-                    });
-                }
-            }
+            experiences[key].images.forEach((image) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.alt = "Experience Image";
+                imgElement.onclick = () => showPopupImage(image);
+                popupImagesContainer.appendChild(imgElement);
+            });
 
             popup.style.display = 'flex';
         }
 
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-            currentPopupKey = null;
-        }
-
-        function showPopupImage(key, index) {
+        function showPopupImage(imageSrc) {
             const popupImageContainer = document.getElementById('popup-image-container');
             const popupImage = document.getElementById('popup-image');
-            popupImage.src = experiences[key].images[index];
+            popupImage.src = imageSrc;
             popupImageContainer.style.display = 'flex';
-            currentPopupImageIndex = index;
-            currentPopupKey = key;
         }
 
         function hidePopupImage() {
             document.getElementById('popup-image-container').style.display = 'none';
         }
 
-        function nextPopupImage() {
-            if (currentPopupKey) {
-                const images = experiences[currentPopupKey].images;
-                currentPopupImageIndex = (currentPopupImageIndex + 1) % images.length;
-                const popupImage = document.getElementById('popup-image');
-                popupImage.src = images[currentPopupImageIndex];
-            }
-        }
-
-        function previousPopupImage() {
-            if (currentPopupKey) {
-                const images = experiences[currentPopupKey].images;
-                currentPopupImageIndex = (currentPopupImageIndex - 1 + images.length) % images.length;
-                const popupImage = document.getElementById('popup-image');
-                popupImage.src = images[currentPopupImageIndex];
-            }
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
         }
 
         function showVideoPopup(key) {
