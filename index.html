@@ -537,15 +537,15 @@
         <h2>My Work</h2>
         <div class="services-container">
             <div class="service-card" onclick="showVideoPopup('tokmat')">
-                <img src="logo.png" alt="TOK MAT SIAM service page">
+                <img src="img/logo.png" alt="TOK MAT SIAM service page">
                 <h3>TOK MAT SIAM service page</h3>
             </div>
             <div class="service-card" onclick="showVideoPopup('silent')">
-                <img src="poster landscape.png" alt="SILENT RESISTANCE game">
+                <img src="img/poster landscape.png" alt="SILENT RESISTANCE game">
                 <h3>SILENT RESISTANCE game</h3>
             </div>
             <div class="service-card" onclick="showVideoPopup('portfolio')">
-                <img src="Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
+                <img src="img/Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
                 <h3>PORTFOLIO PROTOTYPE</h3>
             </div>
         </div>
@@ -563,7 +563,7 @@
                 <img src="img/linkedin.png" alt="LinkedIn">
             </a>
             <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
             </a>
         </div>
     </footer>
@@ -576,7 +576,6 @@
                 <h3 id="popup-title"></h3>
                 <p id="popup-description"></p>
             </div>
-            <div id="popup-images" class="popup-images"></div>
             <button class="popup-close" onclick="hidePopup()">&times;</button>
             <button id="popup-next" class="popup-next" style="display: none;" onclick="nextPopup()">Next</button>
         </div>
@@ -609,40 +608,40 @@
                 img: "img/Subway Choicemark.png",
                 title: "Subway",
                 description: "Experience in fast-paced food service, customer service excellence, and teamwork.",
-                images: ["img/subway1.jpg", "img/subway2.jpg", "img/subway3.jpg"]
+                images: []
             },
             delilits: {
                 img: "img/delilits.png",
                 title: "Delilits",
-                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available).",
-                images: ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg", "img/7.jpg", "img/8.jpg"]
+                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available). For the full layout of the website, <a href='https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' target='_blank'>click here</a>.",
+                images: []
             },
             tetrabit: {
                 img: "img/TetraBit2.png",
                 title: "TETRABIT25",
                 description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition. ",
-                images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
+                images: []
             },
             sepresi: {
                 img: "img/sepresi.jpg",
                 title: "Sepresi",
                 description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
-                images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
+                images: []
             }
         };
 
         const videos = {
             tokmat: {
-                src: "Services - Brave 2024-12-31 05-12-59.mp4",
-                thumbnail: "logo.png"
+                src: "videos/Services - Brave 2024-12-31 05-12-59.mp4",
+                thumbnail: "img/logo.png"
             },
             silent: {
-                src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
-                thumbnail: "poster landscape.png"
+                src: "videos/MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
+                thumbnail: "img/poster landscape.png"
             },
             portfolio: {
-                src: "Adobe XD 2025-01-25 22-15-40.mp4",
-                thumbnail: "Screenshot 2025-01-25 230722.png"
+                src: "videos/Adobe XD 2025-01-25 22-15-40.mp4",
+                thumbnail: "img/Screenshot 2025-01-25 230722.png"
             }
         };
 
@@ -662,17 +661,13 @@
 
             img.src = experiences[key].img;
             title.textContent = experiences[key].title;
-            description.textContent = experiences[key].description;
+            description.innerHTML = experiences[key].description;
             popupImagesContainer.innerHTML = '';
             currentPopupKey = key;
             currentPopupImageIndex = 0;
 
             if (experiences[key].images && experiences[key].images.length > 0) {
-                let imagesToDisplay = experiences[key].images;
-                if (key === 'delilits') {
-                    imagesToDisplay = experiences[key].images.slice(0, 4);
-                }
-                imagesToDisplay.forEach((image, index) => {
+                experiences[key].images.forEach((image, index) => {
                     const imgElement = document.createElement('img');
                     imgElement.src = image;
                     imgElement.alt = `Image ${index + 1}`;
