@@ -659,6 +659,11 @@
             const popupImagesContainer = document.getElementById('popup-images');
             const popupNextButton = document.getElementById('popup-next');
 
+            if (!popup || !img || !title || !description || !popupImagesContainer || !popupNextButton) {
+                console.error("One or more popup elements not found.");
+                return;
+            }
+
             img.src = experiences[key].img;
             title.textContent = experiences[key].title;
             description.innerHTML = experiences[key].description;
@@ -682,8 +687,12 @@
             popup.style.display = 'flex';
         }
 
+
         function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
+            const popup = document.getElementById('popup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
             currentPopupKey = null;
         }
 
@@ -700,14 +709,19 @@
         function showPopupImage(key, index) {
             const popupImageContainer = document.getElementById('popup-image-container');
             const popupImage = document.getElementById('popup-image');
-            popupImage.src = experiences[key].images[index];
-            popupImageContainer.style.display = 'flex';
-            currentPopupImageIndex = index;
-            currentPopupKey = key;
+            if (popupImageContainer && popupImage) {
+                popupImage.src = experiences[key].images[index];
+                popupImageContainer.style.display = 'flex';
+                currentPopupImageIndex = index;
+                currentPopupKey = key;
+            }
         }
 
         function hidePopupImage() {
-            document.getElementById('popup-image-container').style.display = 'none';
+            const popupImageContainer = document.getElementById('popup-image-container');
+            if (popupImageContainer) {
+                popupImageContainer.style.display = 'none';
+            }
         }
 
         function nextPopupImage() {
@@ -715,7 +729,9 @@
                 const images = experiences[currentPopupKey].images;
                 currentPopupImageIndex = (currentPopupImageIndex + 1) % images.length;
                 const popupImage = document.getElementById('popup-image');
-                popupImage.src = images[currentPopupImageIndex];
+                if (popupImage) {
+                    popupImage.src = images[currentPopupImageIndex];
+                }
             }
         }
 
@@ -724,59 +740,73 @@
                 const images = experiences[currentPopupKey].images;
                 currentPopupImageIndex = (currentPopupImageIndex - 1 + images.length) % images.length;
                 const popupImage = document.getElementById('popup-image');
-                popupImage.src = images[currentPopupImageIndex];
+                if (popupImage) {
+                    popupImage.src = images[currentPopupImageIndex];
+                }
             }
         }
 
         function showVideoPopup(key) {
             const videoPopup = document.getElementById('video-popup');
             const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[key].src;
-            videoPlayer.poster = videos[key].thumbnail;
-            videoPopup.style.display = 'flex';
-            videoPlayer.play();
-            currentVideoIndex = videoKeys.indexOf(key);
+            if (videoPopup && videoPlayer) {
+                videoPlayer.src = videos[key].src;
+                videoPlayer.poster = videos[key].thumbnail;
+                videoPopup.style.display = 'flex';
+                videoPlayer.play();
+                currentVideoIndex = videoKeys.indexOf(key);
+            }
         }
 
         function hideVideoPopup() {
             const videoPopup = document.getElementById('video-popup');
             const videoPlayer = document.getElementById('video-player');
-            videoPlayer.pause();
-            videoPopup.style.display = 'none';
+            if (videoPopup && videoPlayer) {
+                videoPlayer.pause();
+                videoPopup.style.display = 'none';
+            }
         }
 
         function nextVideo() {
             currentVideoIndex = (currentVideoIndex + 1) % videoKeys.length;
             const nextKey = videoKeys[currentVideoIndex];
             const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[nextKey].src;
-            videoPlayer.poster = videos[nextKey].thumbnail;
-            videoPlayer.play();
+            if (videoPlayer) {
+                videoPlayer.src = videos[nextKey].src;
+                videoPlayer.poster = videos[nextKey].thumbnail;
+                videoPlayer.play();
+            }
         }
 
         function previousVideo() {
             currentVideoIndex = (currentVideoIndex - 1 + videoKeys.length) % videoKeys.length;
             const prevKey = videoKeys[currentVideoIndex];
             const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[prevKey].src;
-            videoPlayer.poster = videos[prevKey].thumbnail;
-            videoPlayer.play();
+            if (videoPlayer) {
+                videoPlayer.src = videos[prevKey].src;
+                videoPlayer.poster = videos[prevKey].thumbnail;
+                videoPlayer.play();
+            }
         }
 
         function scrollToHero() {
             const heroSection = document.getElementById('hero');
-            window.scrollTo({
-                top: heroSection.offsetTop,
-                behavior: 'smooth'
-            });
+            if (heroSection) {
+                window.scrollTo({
+                    top: heroSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function scrollToContact() {
             const contactSection = document.getElementById('contact');
-            window.scrollTo({
-                top: contactSection.offsetTop,
-                behavior: 'smooth'
-            });
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -785,9 +815,8 @@
 
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                const headerOffset = targetElement.offsetTop;
-
                 if (targetElement) {
+                    const headerOffset = targetElement.offsetTop;
                     window.scrollTo({
                         top: headerOffset,
                         behavior: 'smooth'
@@ -800,13 +829,13 @@
             const popup = document.getElementById('popup');
             const popupImageContainer = document.getElementById('popup-image-container');
             const videoPopup = document.getElementById('video-popup');
-            if (event.target === popup) {
+            if (popup && event.target === popup) {
                 hidePopup();
             }
-            if (event.target === popupImageContainer) {
+            if (popupImageContainer && event.target === popupImageContainer) {
                 hidePopupImage();
             }
-            if (event.target === videoPopup) {
+            if (videoPopup && event.target === videoPopup) {
                 hideVideoPopup();
             }
         });
