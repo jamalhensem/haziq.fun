@@ -209,7 +209,7 @@
             border-radius: 10px;
             display: flex;
             align-items: flex-start; /* Align items to the start */
-            max-width: 600px;
+            max-width: 800px; /* Increased width for the popup */
             width: 80%;
             text-align: left;
             position: relative;
@@ -598,6 +598,13 @@
             title.textContent = experiences[key].title;
             description.innerHTML = experiences[key].description;
             popupImagesContainer.innerHTML = '';
+
+            if (key === 'delilits') {
+                const delilitsLink = document.getElementById('delilits-link');
+                delilitsLink.style.display = 'block';
+            } else {
+                document.getElementById('delilits-link').style.display = 'none';
+            }
 
             experiences[key].images.forEach((image) => {
                 const imgElement = document.createElement('img');
