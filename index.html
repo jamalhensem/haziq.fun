@@ -284,7 +284,7 @@
         }
 
         .popup-image-container img:hover {
-            transform: scale(1.1);
+            transform: scale(1);
         }
 
         .popup-image-close {
@@ -302,6 +302,10 @@
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .popup-image-controls button {
@@ -317,6 +321,14 @@
             background-color: #FF4500;
         }
 
+        .popup-image-controls button:first-child {
+            left: 20px;
+        }
+
+        .popup-image-controls button:last-child {
+            right: 20px;
+        }
+
         .popup-next {
             position: absolute;
             bottom: 20px;
@@ -330,6 +342,26 @@
         }
 
         .popup-next:hover {
+            background-color: #FF4500;
+        }
+
+        .delilits-preview-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .delilits-preview-buttons button {
+            background-color: #B22222;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delilits-preview-buttons button:hover {
             background-color: #FF4500;
         }
 
@@ -563,7 +595,7 @@
                 <img src="img/linkedin.png" alt="LinkedIn">
             </a>
             <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
             </a>
         </div>
     </footer>
@@ -579,15 +611,19 @@
             <div id="popup-images" class="popup-images"></div>
             <button class="popup-close" onclick="hidePopup()">&times;</button>
             <button id="popup-next" class="popup-next" style="display: none;" onclick="nextPopup()">Next</button>
+            <div id="delilits-preview-buttons" class="delilits-preview-buttons" style="display: none;">
+                <button onclick="previousDelilitsPreview()">Previous</button>
+                <button onclick="nextDelilitsPreview()">Next</button>
+            </div>
         </div>
     </div>
 
     <div id="popup-image-container" class="popup-image-container">
         <img id="popup-image" src="" alt="Popup Image">
         <div class="popup-image-controls">
-            <button onclick="previousPopupImage()">Previous</button>
+            <button onclick="previousPopupImage()">&#8592;</button>
             <button onclick="hidePopupImage()">&times;</button>
-            <button onclick="nextPopupImage()">Next</button>
+            <button onclick="nextPopupImage()">&#8594;</button>
         </div>
     </div>
 
@@ -614,7 +650,7 @@
             delilits: {
                 img: "img/delilits.png",
                 title: "Delilits",
-                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available).",
+                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available). For the full layout of the website, <a href='https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' target='_blank'>click here</a>.",
                 images: ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg", "img/7.jpg", "img/8.jpg"]
             },
             tetrabit: {
@@ -633,16 +669,16 @@
 
         const videos = {
             tokmat: {
-                src: "Services - Brave 2024-12-31 05-12-59.mp4",
-                thumbnail: "logo.png"
+                src: "videos/Services - Brave 2024-12-31 05-12-59.mp4",
+                thumbnail: "img/logo.png"
             },
             silent: {
-                src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
-                thumbnail: "poster landscape.png"
+                src: "videos/MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
+                thumbnail: "img/poster landscape.png"
             },
             portfolio: {
-                src: "Adobe XD 2025-01-25 22-15-40.mp4",
-                thumbnail: "Screenshot 2025-01-25 230722.png"
+                src: "videos/Adobe XD 2025-01-25 22-15-40.mp4",
+                thumbnail: "img/Screenshot 2025-01-25 230722.png"
             }
         };
 
@@ -651,6 +687,7 @@
         let currentPopupKey = null;
         let currentImageIndex = 0;
         let currentPopupImageIndex = 0;
+        let delilitsPreviewStartIndex = 0;
 
         function showPopup(key) {
             const popup = document.getElementById('popup');
@@ -659,18 +696,23 @@
             const description = document.getElementById('popup-description');
             const popupImagesContainer = document.getElementById('popup-images');
             const popupNextButton = document.getElementById('popup-next');
+            const delilitsPreviewButtons = document.getElementById('delilits-preview-buttons');
 
             img.src = experiences[key].img;
             title.textContent = experiences[key].title;
-            description.textContent = experiences[key].description;
+            description.innerHTML = experiences[key].description;
             popupImagesContainer.innerHTML = '';
             currentPopupKey = key;
             currentPopupImageIndex = 0;
+            delilitsPreviewStartIndex = 0;
 
             if (experiences[key].images && experiences[key].images.length > 0) {
                 let imagesToDisplay = experiences[key].images;
                 if (key === 'delilits') {
                     imagesToDisplay = experiences[key].images.slice(0, 4);
+                    delilitsPreviewButtons.style.display = 'flex';
+                } else {
+                    delilitsPreviewButtons.style.display = 'none';
                 }
                 imagesToDisplay.forEach((image, index) => {
                     const imgElement = document.createElement('img');
@@ -682,6 +724,7 @@
                 popupNextButton.style.display = 'block';
             } else {
                 popupNextButton.style.display = 'none';
+                delilitsPreviewButtons.style.display = 'none';
             }
 
             popup.style.display = 'flex';
@@ -709,10 +752,14 @@
             popupImageContainer.style.display = 'flex';
             currentPopupImageIndex = index;
             currentPopupKey = key;
+            popupImage.classList.add('no-hover');
         }
 
         function hidePopupImage() {
-            document.getElementById('popup-image-container').style.display = 'none';
+            const popupImageContainer = document.getElementById('popup-image-container');
+            const popupImage = document.getElementById('popup-image');
+            popupImageContainer.style.display = 'none';
+            popupImage.classList.remove('no-hover');
         }
 
         function nextPopupImage() {
@@ -730,6 +777,40 @@
                 currentPopupImageIndex = (currentPopupImageIndex - 1 + images.length) % images.length;
                 const popupImage = document.getElementById('popup-image');
                 popupImage.src = images[currentPopupImageIndex];
+            }
+        }
+
+        function nextDelilitsPreview() {
+            if (currentPopupKey === 'delilits') {
+                const popupImagesContainer = document.getElementById('popup-images');
+                const images = experiences.delilits.images;
+                delilitsPreviewStartIndex = (delilitsPreviewStartIndex + 4) % images.length;
+                popupImagesContainer.innerHTML = '';
+                const imagesToDisplay = images.slice(delilitsPreviewStartIndex, delilitsPreviewStartIndex + 4);
+                imagesToDisplay.forEach((image, index) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image;
+                    imgElement.alt = `Image ${index + 1}`;
+                    imgElement.onclick = () => showPopupImage('delilits', delilitsPreviewStartIndex + index);
+                    popupImagesContainer.appendChild(imgElement);
+                });
+            }
+        }
+
+        function previousDelilitsPreview() {
+            if (currentPopupKey === 'delilits') {
+                const popupImagesContainer = document.getElementById('popup-images');
+                const images = experiences.delilits.images;
+                delilitsPreviewStartIndex = (delilitsPreviewStartIndex - 4 + images.length) % images.length;
+                popupImagesContainer.innerHTML = '';
+                const imagesToDisplay = images.slice(delilitsPreviewStartIndex, delilitsPreviewStartIndex + 4);
+                imagesToDisplay.forEach((image, index) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image;
+                    imgElement.alt = `Image ${index + 1}`;
+                    imgElement.onclick = () => showPopupImage('delilits', delilitsPreviewStartIndex + index);
+                    popupImagesContainer.appendChild(imgElement);
+                });
             }
         }
 
@@ -768,6 +849,8 @@
             videoPlayer.play();
         }
 
+        function scrollToHero() {
+            const heroSection = document.getElementById('hero
         function scrollToHero() {
             const heroSection = document.getElementById('hero');
             window.scrollTo({
