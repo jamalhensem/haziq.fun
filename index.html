@@ -5,35 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haziq-Portfolio</title>
     <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
+            background-color: #000;
+            color: #fff;
             text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         h1, h2 {
             font-weight: bold;
-            color: #B22222; /* Dark red headers */
+            color: #B22222;
         }
 
         button {
             padding: 10px 20px;
-            background-color: #B22222; /* Lighter shade of red */
-            color: #fff; /* White text */
+            background-color: #B22222;
+            color: #fff;
             border: none;
             cursor: pointer;
             margin: 5px;
             transition: background 0.3s ease;
-            border-radius: 5px; /* Rounded edges for buttons */
+            border-radius: 5px;
         }
 
         button:hover {
-            background-color: #FF4500; /* Even lighter red for hover */
+            background-color: #FF4500;
         }
 
         /* Navigation Bar */
@@ -48,19 +50,32 @@
             z-index: 100;
         }
 
-        .main-nav a {
+        .main-nav .logo {
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            margin-left: 20px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .nav-links a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s ease;
-            position: relative; /* Required for underline effect */
+            position: relative;
         }
 
-        .main-nav a:hover {
+        .nav-links a:hover {
             color: #B22222;
         }
 
-        .main-nav a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -71,20 +86,8 @@
             transition: width 0.3s ease;
         }
 
-        .main-nav a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
-        }
-
-        .main-nav .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 2em;
-            margin-left: 20px;
-            font-weight: normal;
-            cursor: pointer; /* Add cursor pointer */
-        }
-
-        .main-nav .nav-links {
-            margin-right: 20px;
         }
 
         /* Hero Section */
@@ -95,33 +98,34 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #1a1a1a; /* Dark grey background */
+            background-color: #1a1a1a;
+            padding: 20px;
         }
 
         .hero h1, .hero h2 {
-            color: #fff; /* White headers in hero section */
+            color: #fff;
         }
 
         /* Skills and Experience Sections */
         .skills, .experience, .my-work, .about {
             margin: 50px 0;
-            padding: 20px 0; /* Add padding to the top and bottom of sections */
+            padding: 20px 0;
         }
 
         .skills {
-            background-color: #000; /* Black background */
+            background-color: #000;
         }
 
         .experience {
-            background-color: #1a1a1a; /* Dark grey background */
+            background-color: #1a1a1a;
         }
 
         .my-work {
-            background-color: #262626; /* Slightly lighter dark grey */
+            background-color: #262626;
         }
 
         .about {
-            background-color: #262626; /* Slightly lighter dark grey */
+            background-color: #262626;
         }
 
         .services-container {
@@ -134,25 +138,25 @@
         }
 
         .service-card {
-            background-color: #555; /* Grey for cards */
+            background-color: #555;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s ease, background-color 0.3s ease;
-            width: 200px; /* Fixed width */
-            height: 150px; /* Fixed height */
-            position: relative; /* Added for level positioning */
-            box-shadow: 0 0 10px rgba(255, 69, 0, 0); /* Initial glow effect */
-            outline: 2px solid transparent; /* Add transparent outline */
+            width: 200px;
+            height: 150px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0);
+            outline: 2px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            background-color: #B22222; /* Dark red for hover */
-            color: #fff; /* White text */
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); /* Darker glow effect on hover */
-            outline: 2px solid #B22222; /* Outline for containers */
+            background-color: #B22222;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+            outline: 2px solid #B22222;
         }
 
         .service-card img {
@@ -160,13 +164,13 @@
             height: 80px;
             margin-bottom: 10px;
             border-radius: 5px;
-            object-fit: cover; /* Ensure images don't stretch */
-            transition: filter 0.3s ease; /* Add transition for filter */
-            background-color: transparent; /* Remove background color */
+            object-fit: cover;
+            transition: filter 0.3s ease;
+            background-color: transparent;
         }
 
         .service-card:hover img {
-            filter: brightness(1.5); /* Make icons lit up on hover */
+            filter: brightness(1.5);
         }
 
         .service-card h3 {
@@ -179,14 +183,14 @@
             margin-top: 10px;
             font-size: 1rem;
             color: #fff;
-            text-align: center; /* Center the level text */
-            padding: 5px; /* Add some padding */
-            border-radius: 5px; /* Add a border radius */
-            position: absolute; /* Position the level */
-            bottom: 0; /* Position at the bottom */
-            left: 0; /* Position at the left */
-            right: 0; /* Position at the right */
-            background: none; /* Remove the black background */
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: none;
         }
 
         /* Popup Styles */
@@ -204,27 +208,27 @@
         }
 
         .popup-content {
-            background-color: #363737; /* Dark red */
+            background-color: #363737;
             padding: 20px;
             border-radius: 10px;
             display: flex;
-            align-items: center; /* Center items vertically */
-            max-width: 800px; /* Increased width for the popup */
+            align-items: center;
+            max-width: 800px;
             width: 80%;
             text-align: left;
             position: relative;
         }
 
         .popup-content img {
-            width: 150px; /* Logo size */
+            width: 150px;
             height: auto;
             margin-right: 20px;
-            margin-top: 10px; /* Adjusted margin to center vertically */
+            margin-top: 10px;
         }
 
         .popup-content h3 {
             margin: 0;
-            color: #fff; /* White text */
+            color: #fff;
         }
 
         .popup-content p {
@@ -233,23 +237,36 @@
 
         .popup-images {
             display: flex;
-            flex-wrap: wrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             gap: 10px;
             margin-top: 20px;
-            justify-content: center;
+            padding-bottom: 10px;
         }
 
         .popup-images img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            scroll-snap-align: start;
         }
 
         .popup-images img:hover {
             transform: scale(1.2);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
         }
 
         .popup-image-container {
@@ -316,12 +333,12 @@
             display: flex;
             gap: 20px;
             align-items: center;
-            background-color: #262626; /* Slightly lighter dark grey */
-            border-radius: 10px; /* Rounded edges for the about section */
+            background-color: #262626;
+            border-radius: 10px;
         }
 
         .about img {
-            width: 300px; /* Increased image size */
+            width: 300px;
             border-radius: 10px;
         }
 
@@ -395,47 +412,92 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .main-nav {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
+                padding: 10px;
             }
 
             .main-nav .logo {
-                margin-left: 0;
-                margin-bottom: 10px;
+                margin-left: 10px;
             }
 
-            .main-nav .nav-links {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: #1a1a1a;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 1000;
                 margin-right: 0;
-                margin-bottom: 10px;
             }
 
-            .main-nav a {
-                margin: 5px;
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                margin: 20px;
+                font-size: 1.2em;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 2em;
+                color: #fff;
+                margin-right: 10px;
+                cursor: pointer;
             }
 
             .hero {
-                height: auto;
-                padding: 50px 20px;
+                height: 100vh;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.2em;
             }
 
             .about {
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
+                margin: 30px 0;
+                padding: 15px;
             }
 
             .about img {
                 width: 80%;
                 max-width: 300px;
+                margin-bottom: 20px;
             }
 
             .services-container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .service-card {
                 width: 100%;
                 height: auto;
+                padding: 15px;
+            }
+
+            .service-card img {
+                width: 60px;
+                height: 60px;
             }
 
             .popup-content {
@@ -457,6 +519,23 @@
             .contact-container img {
                 margin: 10px 0;
             }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 2em;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
+        .hamburger {
+            display: none;
         }
     </style>
 </head>
@@ -464,7 +543,11 @@
     <!-- Main Navigation -->
     <nav class="main-nav">
         <a href="#" class="logo" onclick="scrollToHero()">haziq</a>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="nav-links">
+            <span class="close-btn">&times;</span>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
@@ -512,7 +595,7 @@
                 <img src="img/xd.png" alt="Adobe XD">
                 <h3>Adobe XD</h3>
             </div>
-            <div class="service-card" data-level="Level: Advanced">
+            <div class="service-card" data-level="Level: Intermidate">
                 <img src="img/wix.webp" alt="WIX">
                 <h3>WIX</h3>
             </div>
@@ -581,6 +664,7 @@
     <!-- Popup Templates -->
     <div id="popup" class="popup">
         <div class="popup-content">
+            <button class="popup-close" onclick="hidePopup()">&times;</button>
             <img id="popup-img" src="" alt="Experience">
             <div>
                 <h3 id="popup-title"></h3>
@@ -781,6 +865,14 @@
             if (videoPopup && event.target === videoPopup) {
                 hideVideoPopup();
             }
+        });
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.add('active');
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.remove('active');
         });
     </script>
 </body>
