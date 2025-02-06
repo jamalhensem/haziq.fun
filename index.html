@@ -15,7 +15,6 @@
             background-color: #000;
             color: #fff;
             text-align: center;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         h1, h2 {
@@ -50,20 +49,7 @@
             z-index: 100;
         }
 
-        .main-nav .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 2em;
-            margin-left: 20px;
-            font-weight: normal;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            margin-right: 20px;
-        }
-
-        .nav-links a {
+        .main-nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
@@ -71,11 +57,11 @@
             position: relative;
         }
 
-        .nav-links a:hover {
+        .main-nav a:hover {
             color: #B22222;
         }
 
-        .nav-links a::after {
+        .main-nav a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -86,8 +72,20 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .main-nav a:hover::after {
             width: 100%;
+        }
+
+        .main-nav .logo {
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            margin-left: 20px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .main-nav .nav-links {
+            margin-right: 20px;
         }
 
         /* Hero Section */
@@ -99,7 +97,6 @@
             align-items: center;
             text-align: center;
             background-color: #1a1a1a;
-            padding: 20px;
         }
 
         .hero h1, .hero h2 {
@@ -237,36 +234,23 @@
 
         .popup-images {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            flex-wrap: wrap;
             gap: 10px;
             margin-top: 20px;
-            padding-bottom: 10px;
+            justify-content: center;
         }
 
         .popup-images img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s ease;
-            scroll-snap-align: start;
         }
 
         .popup-images img:hover {
             transform: scale(1.2);
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            color: #fff;
-            font-size: 24px;
-            border: none;
-            cursor: pointer;
         }
 
         .popup-image-container {
@@ -415,35 +399,14 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px;
             }
 
             .main-nav .logo {
                 margin-left: 10px;
             }
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background-color: #1a1a1a;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: left 0.3s ease;
-                z-index: 1000;
-                margin-right: 0;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links a {
-                margin: 20px;
-                font-size: 1.2em;
+            .main-nav .nav-links {
+                display: none;
             }
 
             .hamburger {
@@ -455,49 +418,28 @@
             }
 
             .hero {
-                height: 100vh;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .hero h2 {
-                font-size: 1.2em;
+                height: auto;
+                padding: 50px 20px;
             }
 
             .about {
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
-                margin: 30px 0;
-                padding: 15px;
             }
 
             .about img {
                 width: 80%;
                 max-width: 300px;
-                margin-bottom: 20px;
             }
 
             .services-container {
-                grid-template-columns: 1fr;
-                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .service-card {
                 width: 100%;
                 height: auto;
-                padding: 15px;
-            }
-
-            .service-card img {
-                width: 60px;
-                height: 60px;
             }
 
             .popup-content {
@@ -519,19 +461,6 @@
             .contact-container img {
                 margin: 10px 0;
             }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 2em;
-                color: #fff;
-                cursor: pointer;
-            }
         }
 
         .hamburger {
@@ -543,16 +472,15 @@
     <!-- Main Navigation -->
     <nav class="main-nav">
         <a href="#" class="logo" onclick="scrollToHero()">haziq</a>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
         <div class="nav-links">
-            <span class="close-btn">&times;</span>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#my-work">My Work</a>
             <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
     </nav>
 
@@ -867,12 +795,10 @@
             }
         });
 
+        /* Mobile Hamburger Menu */
         document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.add('active');
-        });
-
-        document.querySelector('.close-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.remove('active');
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
 </body>
