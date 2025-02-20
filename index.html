@@ -1,580 +1,962 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haziq-Portfolio</title>
-    <link rel="stylesheet" href="css/basic.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-        }
+ <!DOCTYPE html>
+ <html lang="en">
+ 
 
-        h1, h2 {
-            font-weight: bold;
-            color: #B22222;
-        }
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haziq-Portfolio</title>
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+  /* General Styles */
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  }
+ 
 
-        button {
-            padding: 10px 20px;
-            background-color: #B22222;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-            transition: background 0.3s ease;
-            border-radius: 5px;
-        }
+  h1,
+  h2 {
+  font-weight: bold;
+  color: #B22222;
+  }
+ 
 
-        button:hover {
-            background-color: #FF4500;
-        }
+  button {
+  padding: 10px 20px;
+  background-color: #B22222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  transition: background 0.3s ease;
+  border-radius: 5px;
+  }
+ 
 
-        /* Navigation Bar */
-        .main-nav {
-            background-color: #1a1a1a;
-            padding: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  button:hover {
+  background-color: #FF4500;
+  }
+ 
 
-        .main-nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+  /* Navigation Bar */
+  .main-nav {
+  background-color: #1a1a1a;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  }
+ 
 
-        .main-nav a:hover {
-            color: #B22222;
-        }
+  .main-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+  position: relative;
+  }
+ 
 
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: #B22222;
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
+  .main-nav a:hover {
+  color: #B22222;
+  }
+ 
 
-        .main-nav a:hover::after {
-            width: 100%;
-        }
+  .main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #B22222;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+  }
+ 
 
-        .main-nav .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 2em;
-            margin-left: 20px;
-            font-weight: normal;
-            cursor: pointer;
-        }
+  .main-nav a:hover::after {
+  width: 100%;
+  }
+ 
 
-        .main-nav .nav-links {
-            margin-right: 20px;
-        }
+  .main-nav .logo {
+  font-family: 'Arial', sans-serif;
+  font-size: 2em;
+  margin-left: 20px;
+  font-weight: normal;
+  cursor: pointer;
+  }
+ 
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: url('img/hero2.jpg') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #1a1a1a;
-        }
+  .main-nav .nav-links {
+  margin-right: 20px;
+  }
+ 
 
-        .hero h1, .hero h2 {
-            color: #fff;
-        }
+  /* Hero Section */
+  .hero {
+  height: 100vh;
+  background: url('img/hero2.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #1a1a1a;
+  }
+ 
 
-        /* Skills and Experience Sections */
-        .skills, .experience, .my-work, .about {
-            margin: 50px 0;
-            padding: 20px 0;
-        }
+  .hero h1,
+  .hero h2 {
+  color: #fff;
+  }
+ 
 
-        .skills {
-            background-color: #000;
-        }
+  /* Skills and Experience Sections */
+  .skills,
+  .experience,
+  .my-work,
+  .about {
+  margin: 50px 0;
+  padding: 20px 0;
+  }
+ 
 
-        .experience {
-            background-color: #1a1a1a;
-        }
+  .skills {
+  background-color: #000;
+  }
+ 
 
-        .my-work {
-            background-color: #262626;
-        }
+  .experience {
+  background-color: #1a1a1a;
+  }
+ 
 
-        .about {
-            background-color: #262626;
-        }
+  .my-work {
+  background-color: #262626;
+  }
+ 
 
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-items: center;
-            margin: 20px auto;
-            max-width: 80%;
-        }
+  .about {
+  background-color: #262626;
+  }
+ 
 
-        .service-card {
-            background-color: #555;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            width: 200px;
-            height: 150px;
-            position: relative;
-            box-shadow: 0 0 10px rgba(255, 69, 0, 0);
-            outline: 2px solid transparent;
-        }
+  .services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 80%;
+  }
+ 
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            background-color: #B22222;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
-            outline: 2px solid #B22222;
-        }
+  .service-card {
+  background-color: #555;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 200px;
+  height: 150px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0);
+  outline: 2px solid transparent;
+  }
+ 
 
-        .service-card img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            object-fit: cover;
-            transition: filter 0.3s ease;
-            background-color: transparent;
-        }
+  .service-card:hover {
+  transform: translateY(-10px);
+  background-color: #B22222;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+  outline: 2px solid #B22222;
+  }
+ 
 
-        .service-card:hover img {
-            filter: brightness(1.5);
-        }
+  .service-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  background-color: transparent;
+  }
+ 
 
-        .service-card h3 {
-            font-size: 1.2rem;
-        }
+  .service-card:hover img {
+  filter: brightness(1.5);
+  }
+ 
 
-        .service-card:hover::after {
-            content: attr(data-level);
-            display: block;
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #fff;
-            text-align: center;
-            padding: 5px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: none;
-        }
+  .service-card h3 {
+  font-size: 1.2rem;
+  }
+ 
 
-        /* Popup Styles */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+  .service-card:hover::after {
+  content: attr(data-level);
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: none;
+  }
+ 
 
-        .popup-content {
-            background-color: #363737;
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            max-width: 800px;
-            width: 80%;
-            text-align: left;
-            position: relative;
-        }
+  /* Popup Styles */
+  .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  }
+ 
 
-        .popup-content img {
-            width: 150px;
-            height: auto;
-            margin-right: 20px;
-            margin-top: 10px;
-        }
+  .popup-content {
+  background-color: #363737;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  width: 80%;
+  text-align: left;
+  position: relative;
+  }
+ 
 
-        .popup-content h3 {
-            margin: 0;
-            color: #fff;
-        }
+  .popup-content img {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  margin-top: 10px;
+  }
+ 
 
-        .popup-content p {
-            margin: 10px 0 0;
-        }
+  .popup-content h3 {
+  margin: 0;
+  color: #fff;
+  }
+ 
 
-        .popup-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            justify-content: center;
-        }
+  .popup-content p {
+  margin: 10px 0 0;
+  }
+ 
 
-        .popup-images img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+  .popup-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+  }
+ 
 
-        .popup-images img:
-	    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>MUHAMMAD HAZIQ DANIAL</h1>
-            <h2>WEB DESIGNER | GAME DESIGNER</h2>
-            <a href="https://www.canva.com/design/DAGdM_bAhKk/Qg1SMAWj63Lm8Y9oqW8LNA/edit?utm_content=DAGdM_bAhKk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
-                <button>Resume</button>
-            </a>
-        </div>
-    </section>
+  .popup-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  }
+ 
 
-    <section id="about" class="about">
-        <img src="img/about me.jpg" alt="About Me">
-        <div>
-            <h2>About Me</h2>
-            <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and Contentpreneurship (MC111).
-            I could speak 3 languages which is Malay (fluent), English (fluent) and Japanese (conversational). I am also learning Malay sign language.</p>
-            <button onclick="scrollToContact()">CONTACT ME</button>
-        </div>
-    </section>
+  .popup-images img:hover {
+  transform: scale(1.2);
+  }
+ 
 
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <div class="services-container">
-            <div class="service-card" data-level="Level: Intermediate">
-                <img src="img/dreamweaver.png" alt="Dreamweaver">
-                <h3>Dreamweaver</h3>
-            </div>
-            <div class="service-card" data-level="Level: Intermediate">
-                <img src="img/ue5.png" alt="Unreal Engine 5">
-                <h3>Unreal Engine 5</h3>
-            </div>
-            <div class="service-card" data-level="Level: Intermediate">
-                <img src="img/xd.png" alt="Adobe XD">
-                <h3>Adobe XD</h3>
-            </div>
-            <div class="service-card" data-level="Level: Intermidate">
-                <img src="img/wix.webp" alt="WIX">
-                <h3>WIX</h3>
-            </div>
-            <div class="service-card" data-level="Level: Intermediate">
-                <img src="img/photoshop.png" alt="Adobe Photoshop">
-                <h3>Adobe Photoshop</h3>
-            </div>
-        </div>
-    </section>
+  .popup-image-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  }
+ 
 
-    <section id="experience" class="experience">
-        <h2>Experience</h2>
-        <div class="services-container">
-            <div class="service-card" onclick="showPopup('subway')">
-                <img src="img/Subway Choicemark.png" alt="Subway" style="object-fit: contain;">
-                <h3>Subway</h3>
-            </div>
-            <div class="service-card" onclick="showPopup('delilits')">
-                <img src="img/delilits.png" alt="Delilits">
-                <h3>Delilits</h3>
-            </div>
-            <div class="service-card" onclick="showPopup('tetrabit')">
-                <img src="img/TetraBit2.png" alt="TETRABIT25">
-                <h3>TETRABIT25</h3>
-            </div>
-            <div class="service-card" onclick="showPopup('sepresi')">
-                <img src="img/sepresi.jpg" alt="Sepresi">
-                <h3>Sepresi</h3>
-            </div>
-        </div>
-    </section>
-	    <section id="my-work" class="my-work">
-        <h2>My Work</h2>
-        <div class="services-container">
-            <div class="service-card" onclick="showVideoPopup('tokmat')">
-                <img src="logo.png" alt="TOK MAT SIAM service page">
-                <h3>TOK MAT SIAM service page</h3>
-            </div>
-            <div class="service-card" onclick="showVideoPopup('silent')">
-                <img src="poster landscape.png" alt="SILENT RESISTANCE game">
-                <h3>SILENT RESISTANCE game</h3>
-            </div>
-            <div class="service-card" onclick="showVideoPopup('portfolio')">
-                <img src="Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
-                <h3>PORTFOLIO PROTOTYPE</h3>
-            </div>
-            <div class="service-card">
-                <img src="img/teh tarik-Recovered.png" alt="Teh Tarik poster">
-                <h3>Teh Tarik poster</h3>
-            </div>
-            <div class="service-card">
-                <img src="img/delilits bawal.png" alt="Delilits Instagram post">
-                <h3>Delilits Instagram post</h3>
-            </div>
-            <div class="service-card">
-                <img src="img/Last post delilits.png" alt="Delilits Instagram post">
-                <h3>Delilits Instagram post</h3>
-            </div>
-            <div class="service-card">
-                <img src="img/Delilits shawl.png" alt="Delilits Instagram post">
-                <h3>Delilits Instagram post</h3>
-            </div>
-        </div>
-    </section>
+  .popup-image-container img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  }
+ 
 
-    <footer id="contact">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me for any inquiries or collaborations.</p>
-        <div class="contact-container">
-            <a href="mailto:hdredsky@gmail.com">
-                <img src="img/email.png" alt="Email">
-            </a>
-            <a href="https://www.linkedin.com/in/haziq-danial-4a1328305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-                <img src="img/linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp">
-            </a>
-        </div>
-    </footer>
+  .popup-image-container img:hover {
+  transform: scale(1);
+  }
+ 
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <button class="popup-close" onclick="hidePopup()">&times;</button>
-            <img id="popup-img" src="" alt="Experience">
-            <div>
-                <h3 id="popup-title"></h3>
-                <p id="popup-description"></p>
-                <p id="delilits-link" style="display: none;">For the full layout of the website <a href="https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">click here</a>.</p>
-                <div id="popup-images" class="popup-images"></div>
-            </div>
-        </div>
-    </div>
+  /* Footer Styles */
+  footer {
+  background-color: #1a1a1a;
+  padding: 20px 0;
+  text-align: center;
+  }
+ 
 
-    <div id="popup-image-container" class="popup-image-container">
-        <img id="popup-image" src="" alt="Popup Image">
-    </div>
+  footer p {
+  margin: 20px auto;
+  font-size: 1.1rem;
+  max-width: 600px;
+  }
+ 
 
-    <div id="video-popup" class="video-popup">
-        <div class="video-popup-content">
-            <video id="video-player" controls></video>
-            <div class="video-popup-controls">
-                <button onclick="previousVideo()">Previous</button>
-                <button onclick="nextVideo()">Next</button>
-            </div>
-            <button class="video-popup-close" onclick="hideVideoPopup()">&times;</button>
-        </div>
-    </div>
-	    <script>
-        const experiences = {
-            subway: {
-                img: "img/Subway Choicemark.png",
-                title: "Subway",
-                description: "Experience in fast-paced food service, customer service excellence, and teamwork.",
-                images: ["img/subway1.jpg", "img/subway2.jpg", "img/subway3.jpg"]
-            },
-            delilits: {
-                img: "img/delilits.png",
-                title: "Delilits",
-                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available).",
-                images:
-            },
-            tetrabit: {
-                img: "img/TetraBit2.png",
-                title: "TETRABIT25",
-                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition.",
-                images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
-            },
-            sepresi: {
-                img: "img/sepresi.jpg",
-                title: "Sepresi",
-                description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
-                images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
-            }
-        };
+  .contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px auto;
+  }
+ 
 
-        const videos = {
-            tokmat: {
-                src: "Services - Brave 2024-12-31 05-12-59.mp4",
-                thumbnail: "logo.png"
-            },
-            silent: {
-                src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
-                thumbnail: "poster landscape.png"
-            },
-            portfolio: {
-                src: "Adobe XD 2025-01-25 22-15-40.mp4",
-                thumbnail: "Screenshot 2025-01-25 230722.png"
-            }
-        };
+  .contact-container img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  }
+ 
 
-        let currentVideoIndex = 0;
-        const videoKeys = Object.keys(videos);
-        let currentPopupKey = null;
-        let currentImageIndex = 0;
+  .contact-container img:hover {
+  transform: scale(1.2);
+  }
+ 
 
-        function showPopup(key) {
-            const popup = document.getElementById('popup');
-            const img = document.getElementById('popup-img');
-            const title = document.getElementById('popup-title');
-            const description = document.getElementById('popup-description');
-            const popupImagesContainer = document.getElementById('popup-images');
+  /* About Me Section */
+  .about {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: left;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: #262626;
+  border-radius: 10px;
+  }
+ 
 
-            img.src = experiences[key].img;
-            title.textContent = experiences[key].title;
-            description.innerHTML = experiences[key].description;
-            popupImagesContainer.innerHTML = '';
+  .about img {
+  width: 300px;
+  border-radius: 10px;
+  }
+ 
 
-            if (key === 'delilits') {
-                const delilitsLink = document.getElementById('delilits-link');
-                delilitsLink.style.display = 'block';
-            } else {
-                document.getElementById('delilits-link').style.display = 'none';
-            }
+  .about h2 {
+  margin-bottom: 20px;
+  }
+ 
 
-            experiences[key].images.forEach((image) => {
-                const imgElement = document.createElement('img');
-                imgElement.src = image;
-                imgElement.alt = "Experience Image";
-                imgElement.onclick = () => showPopupImage(image);
-                popupImagesContainer.appendChild(imgElement);
-            });
+  .about p {
+  line-height: 1.6;
+  }
+ 
 
-            popup.style.display = 'flex';
-        }
+  /* Video Popup Styles */
+  .video-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  }
+ 
 
-        function showPopupImage(imageSrc) {
-            const popupImageContainer = document.getElementById('popup-image-container');
-            const popupImage = document.getElementById('popup-image');
-            popupImage.src = imageSrc;
-            popupImageContainer.style.display = 'flex';
-        }
+  .video-popup-content {
+  background-color: #363737;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  position: relative;
+  }
+ 
 
-        function hidePopupImage() {
-            document.getElementById('popup-image-container').style.display = 'none';
-        }
+  .video-popup-content video {
+  width: 100%;
+  max-height: 600px;
+  }
+ 
 
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
+  .video-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  }
+ 
 
-        function showVideoPopup(key) {
-            const videoPopup = document.getElementById('video-popup');
-            const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[key].src;
-            videoPlayer.poster = videos[key].thumbnail;
-            videoPopup.style.display = 'flex';
-            videoPlayer.play();
-            currentVideoIndex = videoKeys.indexOf(key);
-        }
+  .video-popup-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  }
+ 
 
-        function hideVideoPopup() {
-            const videoPopup = document.getElementById('video-popup');
-            const videoPlayer = document.getElementById('video-player');
-            videoPlayer.pause();
-            videoPopup.style.display = 'none';
-        }
+  .video-popup-controls button {
+  background-color: #B22222;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+ 
 
-        function nextVideo() {
-            currentVideoIndex = (currentVideoIndex + 1) % videoKeys.length;
-            const nextKey = videoKeys[currentVideoIndex];
-            const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[nextKey].src;
-            videoPlayer.poster = videos[nextKey].thumbnail;
-            videoPlayer.play();
-        }
+  .video-popup-controls button:hover {
+  background-color: #FF4500;
+  }
+ 
 
-        function previousVideo() {
-            currentVideoIndex = (currentVideoIndex - 1 + videoKeys.length) % videoKeys.length;
-            const prevKey = videoKeys[currentVideoIndex];
-            const videoPlayer = document.getElementById('video-player');
-            videoPlayer.src = videos[prevKey].src;
-            videoPlayer.poster = videos[prevKey].thumbnail;
-            videoPlayer.play();
-        }
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+  .main-nav {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  }
+ 
 
-        function scrollToHero() {
-            const heroSection = document.getElementById('hero');
-            window.scrollTo({
-                top: heroSection.offsetTop,
-                behavior: 'smooth'
-            });
-        }
+  .main-nav .logo {
+  margin-left: 10px;
+  }
+ 
 
-        function scrollToContact() {
-            const contactSection = document.getElementById('contact');
-            window.scrollTo({
-                top: contactSection.offsetTop,
-                behavior: 'smooth'
-            });
-        }
+  .main-nav .nav-links {
+  display: none;
+  }
+ 
 
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+  .hamburger {
+  display: block;
+  font-size: 2em;
+  color: #fff;
+  margin-right: 10px;
+  cursor: pointer;
+  }
+ 
 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                const headerOffset = targetElement.offsetTop;
+  .hero {
+  height: auto;
+  padding: 50px 20px;
+  }
+ 
 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: headerOffset,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  .about {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  }
+ 
 
-        window.addEventListener('click', function(event) {
-            const popup = document.getElementById('popup');
-            const popupImageContainer = document.getElementById('popup-image-container');
-            const videoPopup = document.getElementById('video-popup');
-            if (popup && event.target === popup) {
-                hidePopup();
-            }
-            if (popupImageContainer && event.target === popupImageContainer) {
-                hidePopupImage();
-            }
-            if (videoPopup && event.target === videoPopup) {
-                hideVideoPopup();
-            }
-        });
+  .about img {
+  width: 80%;
+  max-width: 300px;
+  }
+ 
 
-        /* Mobile Hamburger Menu */
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex'? 'none': 'flex';
-        });
-    </script>
-</body>
-</html>
+  .services-container {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+ 
+
+  .service-card {
+  width: 100%;
+  height: auto;
+  }
+ 
+
+  .popup-content {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
+ 
+
+  .popup-content img {
+  margin-right: 0;
+  margin-bottom: 10px;
+  }
+ 
+
+  .contact-container {
+  flex-direction: column;
+  align-items: center;
+  }
+ 
+
+  .contact-container img {
+  margin: 10px 0;
+  }
+  }
+ 
+
+  .hamburger {
+  display: none;
+  }
+  </style>
+ </head>
+ 
+
+ <body>
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+  <a href="#" class="logo" onclick="scrollToHero()">haziq</a>
+  <div class="nav-links">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#my-work">My Work</a>
+  <a href="#contact">Contact</a>
+  </div>
+  <div class="hamburger">
+  <i class="fas fa-bars"></i>
+  </div>
+  </nav>
+ 
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+  <div class="hero-content">
+  <h1>MUHAMMAD HAZIQ DANIAL</h1>
+  <h2>WEB DESIGNER | GAME DESIGNER</h2>
+  <a
+  href="https://www.canva.com/design/DAGdM_bAhKk/Qg1SMAWj63Lm8Y9oqW8LNA/edit?utm_content=DAGdM_bAhKk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+  target="_blank">
+  <button>Resume</button>
+  </a>
+  </div>
+  </section>
+ 
+
+  <!-- About Me Section -->
+  <section id="about" class="about">
+  <img src="img/about me.jpg" alt="About Me">
+  <div>
+  <h2>About Me</h2>
+  <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and
+  Contentpreneurship (MC111).
+ 
+
+  I could speak 3 languages which is Malay (fluent), English (fluent) and Japanese (conversational). I am also
+  learning Malay sign language.</p>
+ 
+
+  <button onclick="scrollToContact()">CONTACT ME</button>
+  </div>
+  </section>
+ 
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="services-container">
+  <div class="service-card" data-level="Level: Intermediate">
+  <img src="img/dreamweaver.png" alt="Dreamweaver">
+  <h3>Dreamweaver</h3>
+  </div>
+  <div class="service-card" data-level="Level: Intermediate">
+  <img src="img/ue5.png" alt="Unreal Engine 5">
+  <h3>Unreal Engine 5</h3>
+  </div>
+  <div class="service-card" data-level="Level: Intermediate">
+  <img src="img/xd.png" alt="Adobe XD">
+  <h3>Adobe XD</h3>
+  </div>
+  <div class="service-card" data-level="Level: Intermidate">
+  <img src="img/wix.webp" alt="WIX">
+  <h3>WIX</h3>
+  </div>
+  <div class="service-card" data-level="Level: Intermidate">
+  <img src="img/photoshop.png" alt="Adobe Photoshop">
+  <h3>Adobe Photoshop</h3>
+  </div>
+  </div>
+  </section>
+ 
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+  <h2>Experience</h2>
+  <div class="services-container">
+  <div class="service-card" onclick="showPopup('subway')">
+  <img src="img/Subway Choicemark.png" alt="Subway" style="object-fit: contain;">
+  <h3>Subway</h3>
+  </div>
+  <div class="service-card" onclick="showPopup('delilits')">
+  <img src="img/delilits.png" alt="Delilits">
+  <h3>Delilits</h3>
+  </div>
+  <div class="service-card" onclick="showPopup('tetrabit')">
+  <img src="img/TetraBit2.png" alt="TETRABIT25">
+  <h3>TETRABIT25</h3>
+  </div>
+  <div class="service-card" onclick="showPopup('sepresi')">
+  <img src="img/sepresi.jpg" alt="Sepresi">
+  <h3>Sepresi</h3>
+  </div>
+  </div>
+  </section>
+ 
+
+  <!-- My Work Section -->
+  <section id="my-work" class="my-work">
+  <h2>My Work</h2>
+  <div class="services-container">
+  <div class="service-card" onclick="showVideoPopup('tokmat')">
+  <img src="logo.png" alt="TOK MAT SIAM service page">
+  <h3>TOK MAT SIAM service page</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('silent')">
+  <img src="poster landscape.png" alt="SILENT RESISTANCE game">
+  <h3>SILENT RESISTANCE game</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('portfolio')">
+  <img src="Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
+  <h3>PORTFOLIO PROTOTYPE</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('tehtarik')">
+  <img src="img/teh tarik-Recovered.png" alt="Teh Tarik poster">
+  <h3>Teh Tarik poster</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('delilitsbawal')">
+  <img src="img/delilits bawal.png" alt="Delilits Instagram post">
+  <h3>Delilits Instagram post</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('lastpostdelilits')">
+  <img src="img/Last post delilits.png" alt="Delilits Instagram post">
+  <h3>Delilits Instagram post</h3>
+  </div>
+  <div class="service-card" onclick="showVideoPopup('delilitsshawl')">
+  <img src="img/Delilits shawl.png" alt="Delilits Instagram post">
+  <h3>Delilits Instagram post</h3>
+  </div>
+  </div>
+  </section>
+ 
+
+  <!-- Footer Section -->
+  <footer id="contact">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out to me for any inquiries or collaborations.</p>
+  <div class="contact-container">
+  <a href="mailto:hdredsky@gmail.com">
+  <img src="img/email.png" alt="Email">
+  </a>
+  <a
+  href="https://www.linkedin.com/in/haziq-danial-4a1328305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  target="_blank">
+  <img src="img/linkedin.png" alt="LinkedIn">
+  </a>
+  <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0"
+  target="_blank">
+  <img src="whatsapp.png" alt="WhatsApp">
+  </a>
+  </div>
+  </footer>
+ 
+
+  <!-- Popup Templates -->
+  <div id="popup" class="popup">
+  <div class="popup-content">
+  <button class="popup-close" onclick="hidePopup()">&times;</button>
+  <img id="popup-img" src="" alt="Experience">
+  <div>
+  <h3 id="popup-title"></h3>
+  <p id="popup-description"></p>
+  <p id="delilits-link" style="display: none;">For the full layout of the website <a
+  href="https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+  target="_blank">click here</a>.</p>
+  <div id="popup-images" class="popup-images"></div>
+  </div>
+  </div>
+  </div>
+ 
+
+  <div id="popup-image-container" class="popup-image-container">
+  <img id="popup-image" src="" alt="Popup Image">
+  </div>
+ 
+
+  <!-- Video Popup -->
+  <div id="video-popup" class="video-popup">
+  <div class="video-popup-content">
+  <video id="video-player" controls></video>
+  <div class="video-popup-controls">
+  <button onclick="previousVideo()">Previous</button>
+  <button onclick="nextVideo()">Next</button>
+  </div>
+  <button class="video-popup-close" onclick="hideVideoPopup()">&times;</button>
+  </div>
+  </div>
+ 
+
+  <script>
+  const experiences = {
+  subway: {
+  img: "img/Subway Choicemark.png",
+  title: "Subway",
+  description: "Experience in fast-paced food service, customer service excellence, and teamwork.",
+  images: ["img/subway1.jpg", "img/subway2.jpg", "img/subway3.jpg"]
+  },
+  delilits: {
+  img: "img/delilits.png",
+  title: "Delilits",
+  description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available).",
+  images: []
+  },
+  tetrabit: {
+  img: "img/TetraBit2.png",
+  title: "TETRABIT25",
+  description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition.",
+  images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
+  },
+  sepresi: {
+  img: "img/sepresi.jpg",
+  title: "Sepresi",
+  description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
+  images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
+  }
+  };
+ 
+
+  const videos = {
+  tokmat: {
+  src: "Services - Brave 2024-12-31 05-12-59.mp4",
+  thumbnail: "logo.png"
+  },
+  silent: {
+  src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
+  thumbnail: "poster landscape.png"
+  },
+  portfolio: {
+  src: "Adobe XD 2025-01-25 22-15-40.mp4",
+  thumbnail: "Screenshot 2025-01-25 230722.png"
+  },
+  tehtarik: {
+  src: "",
+  thumbnail: "img/teh tarik-Recovered.png"
+  },
+  delilitsbawal: {
+  src: "",
+  thumbnail: "img/delilits bawal.png"
+  },
+  lastpostdelilits: {
+  src: "",
+  thumbnail: "img/Last post delilits.png"
+  },
+  delilitsshawl: {
+  src: "",
+  thumbnail: "img/Delilits shawl.png"
+  }
+  };
+ 
+
+  let currentVideoIndex = 0;
+  const videoKeys = Object.keys(videos);
+  let currentPopupKey = null;
+  let currentImageIndex = 0;
+ 
+
+  function showPopup(key) {
+  const popup = document.getElementById('popup');
+  const img = document.getElementById('popup-img');
+  const title = document.getElementById('popup-title');
+  const description = document.getElementById('popup-description');
+  const popupImagesContainer = document.getElementById('popup-images');
+ 
+
+  img.src = experiences[key].img;
+  title.textContent = experiences[key].title;
+  description.innerHTML = experiences[key].description;
+  popupImagesContainer.innerHTML = '';
+ 
+
+  if (key === 'delilits') {
+  const delilitsLink = document.getElementById('delilits-link');
+  delilitsLink.style.display = 'block';
+  } else {
+  document.getElementById('delilits-link').style.display = 'none';
+  }
+ 
+
+  experiences[key].images.forEach((image) => {
+  const imgElement = document.createElement('img');
+  imgElement.src = image;
+  imgElement.alt = "Experience Image";
+  imgElement.onclick = () => showPopupImage(image);
+  popupImagesContainer.appendChild(imgElement);
+  });
+ 
+
+  popup.style.display = 'flex';
+  }
+ 
+
+  function showPopupImage(imageSrc) {
+  const popupImageContainer = document.getElementById('popup-image-container');
+  const popupImage = document.getElementById('popup-image');
+  popupImage.src = imageSrc;
+  popupImageContainer.style.display = 'flex';
+  }
+ 
+
+  function hidePopupImage() {
+  document.getElementById('popup-image-container').style.display = 'none';
+  }
+ 
+
+  function hidePopup() {
+  document.getElementById('popup').style.display = 'none';
+  }
+ 
+
+  function showVideoPopup(key) {
+  const videoPopup = document.getElementById('video-popup');
+  const videoPlayer = document.getElementById('video-player');
+  videoPlayer.src = videos[key].src;
+  videoPlayer.poster = videos[key].thumbnail;
+  videoPopup.style.display = 'flex';
+  videoPlayer.play();
+  currentVideoIndex = videoKeys.indexOf(key);
+  }
+ 
+
+  function hideVideoPopup() {
+  const videoPopup = document.getElementById('video-popup');
+  const videoPlayer = document.getElementById('video-player');
+  videoPlayer.pause();
+  videoPopup.style.display = 'none';
+  }
+ 
+
+  function nextVideo() {
+  currentVideoIndex = (currentVideoIndex + 1) % videoKeys.length;
+  const nextKey = videoKeys[currentVideoIndex];
+  const videoPlayer = document.getElementById('video-player');
+  videoPlayer.src = videos[nextKey].src;
+  videoPlayer.poster = videos[nextKey].thumbnail;
+  videoPlayer.play();
+  }
+ 
+
+  function previousVideo() {
+  currentVideoIndex = (currentVideoIndex - 1 + videoKeys.length) % videoKeys.length;
+  const prevKey = videoKeys[currentVideoIndex];
+  const videoPlayer = document.getElementById('video-player');
+  videoPlayer.src = videos[prevKey].src;
+  videoPlayer.poster = videos[prevKey].thumbnail;
+  videoPlayer.play();
+  }
+ 
+
+  function scrollToHero() {
+  const heroSection = document.getElementById('hero');
+  window.scrollTo({
+  top: heroSection.offsetTop,
+  behavior: 'smooth'
+  });
+  }
+ 
+
+  function scrollToContact() {
+  const contactSection = document.getElementById('contact');
+  window.scrollTo({
+  top: contactSection.offsetTop,
+  behavior: 'smooth'
+  });
+  }
+ 
+
+  document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+  e.preventDefault();
+ 
+
+  const targetId = this.getAttribute('href').substring(1);
+  const targetElement = document.getElementById(targetId);
+  const headerOffset = targetElement.offsetTop;
+ 
+
+  if (targetElement) {
+  window.scrollTo({
+  top: headerOffset,
+  behavior: 'smooth'
+  });
+  }
+  });
+  });
+ 
+
+  window.addEventListener('click', function (event) {
+  const popup = document.getElementById('popup');
+  const popupImageContainer = document.getElementById('popup-image-container');
+  const videoPopup = document.getElementById('video-popup');
+  if (popup && event.target === popup) {
+  hidePopup();
+  }
+  if (popupImageContainer && event.target === popupImageContainer) {
+  hidePopupImage();
+  }
+  if (videoPopup && event.target === videoPopup) {
+  hideVideoPopup();
+  }
+  });
+ 
+
+  /* Mobile Hamburger Menu */
+  document.querySelector('.hamburger').addEventListener('click', function () {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+  </script>
+ </body>
+ 
+
+ </html>
