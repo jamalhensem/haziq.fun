@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
   /* General Styles */
   body {
@@ -534,6 +537,43 @@
   .contact-container img {
   margin: 10px 0;
   }
+ 
+
+  /* Slick Slider Styles for Mobile */
+  #skills .services-container,
+  #experience .services-container,
+  #my-work .services-container {
+  display: block;
+  }
+ 
+
+  .slick-slide {
+  margin: 0 10px;
+  }
+ 
+
+  .slick-prev,
+  .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  }
+ 
+
+  .slick-prev {
+  left: 10px;
+  }
+ 
+
+  .slick-next {
+  right: 10px;
+  }
   }
  
 
@@ -635,10 +675,6 @@
   <section id="experience" class="experience">
   <h2>Experience</h2>
   <div class="services-container">
-  <div class="service-card" onclick="showPopup('subway')">
-  <img src="img/Subway Choicemark.png" alt="Subway" style="object-fit: contain;">
-  <h3>Subway</h3>
-  </div>
   <div class="service-card" onclick="showPopup('delilits')">
   <img src="img/delilits.png" alt="Delilits">
   <h3>Delilits</h3>
@@ -747,14 +783,10 @@
   </div>
  
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
   const experiences = {
-  subway: {
-  img: "img/Subway Choicemark.png",
-  title: "Subway",
-  description: "Experience in fast-paced food service, customer service excellence, and teamwork.",
-  images: ["img/subway1.jpg", "img/subway2.jpg", "img/subway3.jpg"]
-  },
   delilits: {
   img: "img/delilits.png",
   title: "Delilits",
@@ -948,6 +980,38 @@
   document.querySelector('.hamburger').addEventListener('click', function () {
   const navLinks = document.querySelector('.nav-links');
   navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+ 
+
+  $(document).ready(function () {
+  $('#skills .services-container').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  arrows: false
+  });
+ 
+
+  $('#experience .services-container').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  arrows: false
+  });
+ 
+
+  $('#my-work .services-container').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  arrows: false
+  });
   });
   </script>
  </body>
