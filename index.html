@@ -10,8 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
   /* General Styles */
   body {
@@ -504,20 +502,13 @@
  
 
   .services-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
  
 
   .service-card {
-  width: 80%;
-  min-width: 80%;
+  width: 100%;
   height: auto;
-  margin: 0 10px;
-  scroll-snap-align: start;
-  box-sizing: border-box;
   }
  
 
@@ -752,8 +743,6 @@
   </div>
  
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
   const experiences = {
   delilits: {
@@ -949,35 +938,6 @@
   document.querySelector('.hamburger').addEventListener('click', function () {
   const navLinks = document.querySelector('.nav-links');
   navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-  });
- 
-
-  $(document).ready(function () {
-  $('.skills .services-container').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true
-  });
- 
-
-  $('.experience .services-container').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true
-  });
- 
-
-  $('.my-work .services-container').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true
-  });
   });
   </script>
  </body>
