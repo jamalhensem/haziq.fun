@@ -152,31 +152,14 @@
   }
  
 
-/* General Styles */
-.services-container {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax as needed */
- gap: 20px;
- justify-items: center;
- margin: 20px auto;
- max-width: 80%;
-}
-
-
-/* Mobile Styles */
-@media (max-width: 768px) {
- .services-container {
- grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
- }
-}
-
-
-/* Desktop View for My Work Section */
-@media (min-width: 769px) {
- #my-work .services-container {
- grid-template-columns: repeat(3, 1fr);
- }
-}
+  .services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 80%;
+  }
  
 
   .service-card {
@@ -474,30 +457,30 @@
   /* Mobile Styles */
   @media (max-width: 768px) {
   .main-nav {
-  flex-direction: column; /* Changed to column */
-  justify-content: center; /* Changed to center */
-  align-items: center; /* Keep alignment centered */
-  text-align: center; /* Ensure text is centered */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   }
  
 
   .main-nav .logo {
-  margin-left: 0; /* Remove left margin */
-  margin-bottom: 10px; /* Add some space below the logo */
+  margin-left: 0;
+  margin-bottom: 10px;
   }
  
 
   .main-nav .nav-links {
-  display: none; /* Initially hide the nav links */
-  width: 100%; /* Take full width */
-  padding: 10px 0; /* Add padding for better touch experience */
+  display: none;
+  width: 100%;
+  padding: 10px 0;
   }
  
 
   .main-nav .nav-links a {
-  display: block; /* Each link takes a new line */
-  margin: 5px 0; /* Add vertical spacing */
-  text-align: center; /* Center the text */
+  display: block;
+  margin: 5px 0;
+  text-align: center;
   }
  
 
@@ -507,9 +490,9 @@
   color: #fff;
   margin-right: 10px;
   cursor: pointer;
-  position: absolute; /* Position it to the right */
-  top: 10px; /* Align to the top */
-  right: 10px; /* Align to the right */
+  position: absolute;
+  top: 10px;
+  right: 10px;
   }
  
 
@@ -570,17 +553,6 @@
 
   .hamburger {
   display: none;
-  }
- 
-
-  #my-work .services-container {
-  justify-content: center;
-  }
- 
-
-  #my-work .services-container {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
-  }
   }
  
 
