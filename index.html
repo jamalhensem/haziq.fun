@@ -562,7 +562,7 @@
  
 
   #my-work .services-container {
-  grid-template-columns: repeat(3, 1fr); /* Adjust for smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
   }
   }
  
@@ -618,7 +618,7 @@
  
 
   I could speak 3 languages which is Malay (fluent), English (fluent) and Japanese (conversational). I am also
-  learning Malaysian sign language.</p>
+  learning Malay sign language.</p>
  
 
   <button onclick="scrollToContact()">CONTACT ME</button>
@@ -683,10 +683,6 @@
   <section id="my-work" class="my-work">
   <h2>My Work</h2>
   <div class="services-container">
-  <div class="service-card" onclick="showVideoPopup('tokmat')">
-  <img src="logo.png" alt="TOK MAT SIAM service page">
-  <h3>TOK MAT SIAM service page</h3>
-  </div>
   <div class="service-card" onclick="showVideoPopup('silent')">
   <img src="poster landscape.png" alt="SILENT RESISTANCE game">
   <h3>SILENT RESISTANCE game</h3>
@@ -800,10 +796,6 @@
  
 
   const videos = {
-  tokmat: {
-  src: "Services - Brave 2024-12-31 05-12-59.mp4",
-  thumbnail: "logo.png"
-  },
   silent: {
   src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
   thumbnail: "poster landscape.png"
