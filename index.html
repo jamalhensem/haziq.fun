@@ -152,14 +152,31 @@
   }
  
 
-  .services-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Modified to show 3 items per row */
-  gap: 20px;
-  justify-items: center;
-  margin: 20px auto;
-  max-width: 80%;
-  }
+/* General Styles */
+.services-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax as needed */
+ gap: 20px;
+ justify-items: center;
+ margin: 20px auto;
+ max-width: 80%;
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+ .services-container {
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ }
+}
+
+
+/* Desktop View for My Work Section */
+@media (min-width: 769px) {
+ #my-work .services-container {
+ grid-template-columns: repeat(3, 1fr);
+ }
+}
  
 
   .service-card {
