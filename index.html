@@ -226,11 +226,14 @@
         let currentImageIndex = 0;
 
         function showPopup(key) {
+            console.log("showPopup called with key:", key);
             const popup = document.getElementById('popup');
             const img = document.getElementById('popup-img');
-            const title = documentgetElementById('popup-title');
+            const title = document.getElementById('popup-title');
             const description = document.getElementById('popup-description');
             const popupImagesContainer = document.getElementById('popup-images');
+
+            console.log("Experiences data:", experiences?.[key]);
 
             img.src = experiences?.[key]?.img || '';
             title.textContent = experiences?.[key]?.title || '';
@@ -253,6 +256,7 @@
             });
 
             popup.style.display = 'flex';
+            console.log("Popup display set to flex");
         }
 
         function showPopupImage(imageSrc) {
@@ -336,49 +340,48 @@
                     });
                 }
             });
-        });
+            });
 
         window.addEventListener('click', function (event) {
             const popup = document.getElementById('popup');
             const popupImageContainer = document.getElementById('popup-image-container');
+            const videoPopup = document.getElementById('video-popup');
+            if (popup && event.target === popup) {
+                hidePopup();
+            }
+            if (popupImageContainer && event.target === popupImageContainer) {
+                hidePopupImage();
+            }
+            if (videoPopup && event.target === videoPopup) {
+                hideVideoPopup();
+            }
+        });
 
-        const videoPopup = document.getElementById('video-popup');
-           if (popup && event.target === popup) {
-               hidePopup();
-           }
-           if (popupImageContainer && event.target === popupImageContainer) {
-               hidePopupImage();
-           }
-           if (videoPopup && event.target === videoPopup) {
-               hideVideoPopup();
-           }
-       });
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-       // Mobile Navigation Toggle
-       const hamburger = document.querySelector('.hamburger');
-       const navLinks = document.querySelector('.nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
 
-       if (hamburger && navLinks) {
-           hamburger.addEventListener('click', () => {
-               navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-           });
+            // Hide mobile nav on link click
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                });
+            });
 
-           // Hide mobile nav on link click
-           navLinks.querySelectorAll('a').forEach(link => {
-               link.addEventListener('click', () => {
-                   if (window.innerWidth <= 768) {
-                       navLinks.style.display = 'none';
-                   }
-               });
-           });
-
-           // Hide mobile nav on resize (if screen becomes larger)
-           window.addEventListener('resize', () => {
-               if (window.innerWidth > 768) {
-                   navLinks.style.display = 'flex';
-               }
-           });
-       }
-   </script>
+            // Hide mobile nav on resize (if screen becomes larger)
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
