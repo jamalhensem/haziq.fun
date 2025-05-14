@@ -1,355 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haziq-Portfolio</title>
-  <link rel="stylesheet" href="css/basic.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haziq-Portfolio</title>
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <nav class="main-nav">
-    <a href="#" class="logo" onclick="scrollToHero()">haziq</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#my-work">My Work</a>
-      <a href="#contact">Contact</a>
+    <nav class="main-nav">
+        <a href="#" class="logo" onclick="scrollToHero()">haziq</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#my-work">My Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>MUHAMMAD HAZIQ DANIAL</h1>
+            <h2>WEB DESIGNER | GAME DESIGNER</h2>
+            <a
+                href="https://www.canva.com/design/DAGLxWWae8o/kilIb12-wO36M04ahbIdtQ/view?utm_content=DAGLxWWae8o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h05227109ed"
+                target="_blank">
+                <button>Resume</button>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <img src="img/about me.jpg" alt="About Me">
+        <div>
+            <h2>About Me</h2>
+            <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and
+                Contentpreneurship (MC111).
+                I could speak 3 languages which is Malay (fluent), English (fluent) and Japanese (conversational). I am also
+                learning Malay sign language.</p>
+            <button onclick="scrollToContact()">CONTACT ME</button>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="services-container">
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/dreamweaver.png" alt="Dreamweaver">
+                <h3>Dreamweaver</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/ue5.png" alt="Unreal Engine 5">
+                <h3>Unreal Engine 5</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/xd.png" alt="Adobe XD">
+                <h3>Adobe XD</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/wix.webp" alt="WIX">
+                <h3>WIX</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/photoshop.png" alt="Adobe Photoshop">
+                <h3>Adobe Photoshop</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/figma.png" alt="Figma">
+                <h3>Figma</h3>
+            </div>
+            <div class="service-card" data-level="Level: Intermediate">
+                <img src="img/illustrator.png" alt="Adobe Illustrator">
+                <h3>Adobe Illustrator</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="services-container">
+            <div class="service-card" onclick="showPopup('delilits')">
+                <img src="img/delilits.png" alt="Delilits">
+                <h3>Delilits</h3>
+            </div>
+            <div class="service-card" onclick="showPopup('tetrabit')">
+                <img src="img/TetraBit2.png" alt="TETRABIT25">
+                <h3>TETRABIT25</h3>
+            </div>
+            <div class="service-card" onclick="showPopup('sepresi')">
+                <img src="img/sepresi.jpg" alt="Sepresi">
+                <h3>Sepresi</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="my-work" class="my-work">
+        <h2>My Work</h2>
+        <div class="services-container">
+            <div class="service-card" onclick="showVideoPopup('silent')">
+                <img src="poster landscape.png" alt="SILENT RESISTANCE game">
+                <h3>SILENT RESISTANCE game</h3>
+            </div>
+            <div class="service-card" onclick="showVideoPopup('portfolio')">
+                <img src="Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
+                <h3>PORTFOLIO PROTOTYPE</h3>
+            </div>
+            <div class="service-card" onclick="showPopupImage('img/teh tarik-Recovered.png')">
+                <img src="img/teh tarik-Recovered.png" alt="Teh Tarik poster">
+                <h3>Teh Tarik poster</h3>
+            </div>
+            <div class="service-card" onclick="showPopupImage('img/delilits bawal.png')">
+                <img src="img/delilits bawal.png" alt="Delilits Instagram post">
+                <h3>Delilits Instagram post</h3>
+            </div>
+            <div class="service-card" onclick="showPopupImage('img/Last post delilits.png')">
+                <img src="img/Last post delilits.png" alt="Delilits Instagram post">
+                <h3>Delilits Instagram post</h3>
+            </div>
+            <div class="service-card" onclick="showPopupImage('img/Delilits shawl.png')">
+                <img src="img/Delilits shawl.png" alt="Delilits Instagram post">
+                <h3>Delilits Instagram post</h3>
+            </div>
+            <div class="service-card" onclick="window.open('https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">
+                <img src="img/delilits.png" alt="Delilits Website">
+                <h3>Delilits Website</h3>
+            </div>
+            <div class="service-card" onclick="window.open('https://vt.tiktok.com/ZShuKATyF/', '_blank')">
+                <img src="img/MC112.png" alt="MC112 Promotion video">
+                <h3>MC112 Promotion video</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me for any inquiries or collaborations.</p>
+        <div class="contact-container">
+            <a href="mailto:haziqdanialsyah@gmail.com">
+                <img src="img/email.png" alt="Email">
+            </a>
+            <a
+                href="https://www.linkedin.com/in/haziq-danial-4a1328305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank">
+                <img src="img/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0"
+                target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
+            </a>
+        </div>
+    </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="hidePopup()">&times;</button>
+            <img id="popup-img" src="" alt="Experience">
+            <div>
+                <h3 id="popup-title"></h3>
+                <p id="popup-description"></p>
+                <p id="delilits-link" style="display: none;">For the full layout of the website <a
+                        href="https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                        target="_blank">click here</a>.</p>
+                <div id="popup-images" class="popup-images"></div>
+            </div>
+        </div>
     </div>
-    <div class="hamburger">
-      <i class="fas fa-bars"></i>
+
+    <div id="popup-image-container" class="popup-image-container">
+        <img id="popup-image" src="" alt="Popup Image">
     </div>
-  </nav>
 
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>MUHAMMAD HAZIQ DANIAL</h1>
-      <h2>WEB DESIGNER | GAME DESIGNER</h2>
-      <a
-        href="https://www.canva.com/design/DAGLxWWae8o/kilIb12-wO36M04ahbIdtQ/view?utm_content=DAGLxWWae8o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h05227109ed"
-        target="_blank">
-        <button>Resume</button>
-      </a>
+    <div id="video-popup" class="video-popup">
+        <div class="video-popup-content">
+            <video id="video-player" controls></video>
+            <div class="video-popup-controls">
+                <button onclick="previousVideo()">Previous</button>
+                <button onclick="nextVideo()">Next</button>
+            </div>
+            <button class="video-popup-close" onclick="hideVideoPopup()">&times;</button>
+        </div>
     </div>
-  </section>
 
-  <section id="about" class="about">
-    <img src="img/about me.jpg" alt="About Me">
-    <div>
-      <h2>About Me</h2>
-      <p>Hello! I'm Muhammad Haziq Danial, a full-time student taking a diploma in New Media Communication and
-        Contentpreneurship (MC111).
-        I could speak 3 languages which is Malay (fluent), English (fluent) and Japanese (conversational). I am also
-        learning Malay sign language.</p>
-      <button onclick="scrollToContact()">CONTACT ME</button>
-    </div>
-  </section>
+    <script>
+        const experiences = {
+            delilits: {
+                img: "img/delilits.png",
+                title: "Delilits",
+                description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available). I also made three Instagram posts for Delilits which could be seen at the My work section.",
+                images: []
+            },
+            tetrabit: {
+                img: "img/TetraBit2.png",
+                title: "TETRABIT25",
+                description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition.",
+                images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
+            },
+            sepresi: {
+                img: "img/sepresi.jpg",
+                title: "Sepresi",
+                description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
+                images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
+            }
+        };
 
-  <section id="skills" class="skills">
-    <h2>Skills</h2>
-    <div class="services-container">
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/dreamweaver.png" alt="Dreamweaver">
-        <h3>Dreamweaver</h3>
-      </div>
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/ue5.png" alt="Unreal Engine 5">
-        <h3>Unreal Engine 5</h3>
-      </div>
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/xd.png" alt="Adobe XD">
-        <h3>Adobe XD</h3>
-      </div>
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/wix.webp" alt="WIX">
-        <h3>WIX</h3>
-      </div>
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/photoshop.png" alt="Adobe Photoshop">
-        <h3>Adobe Photoshop</h3>
-      </div>
-      <div class="service-card" data-level="Level: Intermediate">
-        <img src="img/figma.png" alt="Figma">
-        <h3>Figma</h3>
-      </div>
-    </div>
-  </section>
+        const videos = {
+            silent: {
+                src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
+                thumbnail: "poster landscape.png"
+            },
+            portfolio: {
+                src: "Adobe XD 2025-01-25 22-15-40.mp4",
+                thumbnail: "Screenshot 2025-01-25 230722.png"
+            }
+        };
 
-  <section id="experience" class="experience">
-    <h2>Experience</h2>
-    <div class="services-container">
-      <div class="service-card" onclick="showPopup('delilits')">
-        <img src="img/delilits.png" alt="Delilits">
-        <h3>Delilits</h3>
-      </div>
-      <div class="service-card" onclick="showPopup('tetrabit')">
-        <img src="img/TetraBit2.png" alt="TETRABIT25">
-        <h3>TETRABIT25</h3>
-      </div>
-      <div class="service-card" onclick="showPopup('sepresi')">
-        <img src="img/sepresi.jpg" alt="Sepresi">
-        <h3>Sepresi</h3>
-      </div>
-    </div>
-  </section>
+        let currentVideoIndex = 0;
+        const videoKeys = Object.keys(videos);
+        let currentPopupKey = null;
+        let currentImageIndex = 0;
 
-  <section id="my-work" class="my-work">
-    <h2>My Work</h2>
-    <div class="services-container">
-      <div class="service-card" onclick="showVideoPopup('silent')">
-        <img src="poster landscape.png" alt="SILENT RESISTANCE game">
-        <h3>SILENT RESISTANCE game</h3>
-      </div>
-      <div class="service-card" onclick="showVideoPopup('portfolio')">
-        <img src="Screenshot 2025-01-25 230722.png" alt="PORTFOLIO PROTOTYPE">
-        <h3>PORTFOLIO PROTOTYPE</h3>
-      </div>
-      <div class="service-card" onclick="showPopupImage('img/teh tarik-Recovered.png')">
-        <img src="img/teh tarik-Recovered.png" alt="Teh Tarik poster">
-        <h3>Teh Tarik poster</h3>
-      </div>
-      <div class="service-card" onclick="showPopupImage('img/delilits bawal.png')">
-        <img src="img/delilits bawal.png" alt="Delilits Instagram post">
-        <h3>Delilits Instagram post</h3>
-      </div>
-      <div class="service-card" onclick="showPopupImage('img/Last post delilits.png')">
-        <img src="img/Last post delilits.png" alt="Delilits Instagram post">
-        <h3>Delilits Instagram post</h3>
-      </div>
-      <div class="service-card" onclick="showPopupImage('img/Delilits shawl.png')">
-        <img src="img/Delilits shawl.png" alt="Delilits Instagram post">
-        <h3>Delilits Instagram post</h3>
-      </div>
-      <div class="service-card" onclick="window.open('https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">
-        <img src="img/delilits.png" alt="Delilits Website">
-        <h3>Delilits Website</h3>
-      </div>
-    </div>
-  </section>
+        function showPopup(key) {
+            const popup = document.getElementById('popup');
+            const img = document.getElementById('popup-img');
+            const title = documentgetElementById('popup-title');
+            const description = document.getElementById('popup-description');
+            const popupImagesContainer = document.getElementById('popup-images');
 
-  <footer id="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out to me for any inquiries or collaborations.</p>
-    <div class="contact-container">
-      <a href="mailto:haziqdanialsyah@gmail.com">
-        <img src="img/email.png" alt="Email">
-      </a>
-      <a
-        href="https://www.linkedin.com/in/haziq-danial-4a1328305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-        target="_blank">
-        <img src="img/linkedin.png" alt="LinkedIn">
-      </a>
-      <a href="https://api.whatsapp.com/send/?phone=%2B60199232571&text&type=phone_number&app_absent=0"
-        target="_blank">
-        <img src="whatsapp.png" alt="WhatsApp">
-      </a>
-    </div>
-  </footer>
+            img.src = experiences?.[key]?.img || '';
+            title.textContent = experiences?.[key]?.title || '';
+            description.innerHTML = experiences?.[key]?.description || '';
+            popupImagesContainer.innerHTML = '';
 
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <button class="popup-close" onclick="hidePopup()">&times;</button>
-      <img id="popup-img" src="" alt="Experience">
-      <div>
-        <h3 id="popup-title"></h3>
-        <p id="popup-description"></p>
-        <p id="delilits-link" style="display: none;">For the full layout of the website <a
-            href="https://www.canva.com/design/DAGdekiUFUc/zvSo8yZYkR0SlbvZCG7vXQ/edit?utm_content=DAGdekiUFUc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-            target="_blank">click here</a>.</p>
-        <div id="popup-images" class="popup-images"></div>
-      </div>
-    </div>
-  </div>
+            if (key === 'delilits') {
+                const delilitsLink = document.getElementById('delilits-link');
+                delilitsLink.style.display = 'block';
+            } else {
+                document.getElementById('delilits-link').style.display = 'none';
+            }
 
-  <div id="popup-image-container" class="popup-image-container">
-    <img id="popup-image" src="" alt="Popup Image">
-  </div>
+            experiences?.[key]?.images?.forEach((image) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.alt = "Experience Image";
+                imgElement.onclick = () => showPopupImage(image);
+                popupImagesContainer.appendChild(imgElement);
+            });
 
-  <div id="video-popup" class="video-popup">
-    <div class="video-popup-content">
-      <video id="video-player" controls></video>
-      <div class="video-popup-controls">
-        <button onclick="previousVideo()">Previous</button>
-        <button onclick="nextVideo()">Next</button>
-      </div>
-      <button class="video-popup-close" onclick="hideVideoPopup()">&times;</button>
-    </div>
-  </div>
-
-  <script>
-    const experiences = {
-      delilits: {
-        img: "img/delilits.png",
-        title: "Delilits",
-        description: "Delilits was an online shawl brand. I was a developer for their website which was Delilits.com (The domain was no longer available). I also made three Instagram posts for Delilits which could be seen at the My work section.",
-        images: []
-      },
-      tetrabit: {
-        img: "img/TetraBit2.png",
-        title: "TETRABIT25",
-        description: "TETRABIT25 is an event organized by my course MC111. The event was to get beta testers to try our game. I am the treasurer and protocol bureau leader for the event. My job was to handle the event's financial flow and making sure that the event went as planned. I am also the developer of the game SILENT RESISTANCE for the TETRABIT25 exhibition.",
-        images: ["img/DSC_7385-Enhanced-NR.jpg", "img/DSC_7483-Enhanced-NR.jpg", "img/DSC_7884-Enhanced-NR.jpg", "img/_DSC0107.JPG"]
-      },
-      sepresi: {
-        img: "img/sepresi.jpg",
-        title: "Sepresi",
-        description: "SEPRESI is an acting club at my campus. On 4th of January, the club held a play and I was responsible of handling the ticketing process of the play. All the tickets were preordered and I will have to look for the buyers information before they claim the ticket.",
-        images: ["img/semarak2.jpg", "img/semarak3.jpg", "img/semarak4.jpg", "img/semarakj.jpg"]
-      }
-    };
-
-    const videos = {
-      silent: {
-        src: "MyProject10 Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2025-01-25 18-56-20.mp4",
-        thumbnail: "poster landscape.png"
-      },
-      portfolio: {
-        src: "Adobe XD 2025-01-25 22-15-40.mp4",
-        thumbnail: "Screenshot 2025-01-25 230722.png"
-      }
-    };
-
-    let currentVideoIndex = 0;
-    const videoKeys = Object.keys(videos);
-    let currentPopupKey = null;
-    let currentImageIndex = 0;
-
-    function showPopup(key) {
-      const popup = document.getElementById('popup');
-      const img = document.getElementById('popup-img');
-      const title = document.getElementById('popup-title');
-      const description = document.getElementById('popup-description');
-      const popupImagesContainer = document.getElementById('popup-images');
-
-      img.src = experiences[key].img;
-      title.textContent = experiences[key].title;
-      description.innerHTML = experiences[key].description;
-      popupImagesContainer.innerHTML = '';
-
-      if (key === 'delilits') {
-        const delilitsLink = document.getElementById('delilits-link');
-        delilitsLink.style.display = 'block';
-      } else {
-        document.getElementById('delilits-link').style.display = 'none';
-      }
-
-      experiences[key].images.forEach((image) => {
-        const imgElement = document.createElement('img');
-        imgElement.src = image;
-        imgElement.alt = "Experience Image";
-        imgElement.onclick = () => showPopupImage(image);
-        popupImagesContainer.appendChild(imgElement);
-      });
-
-      popup.style.display = 'flex';
-    }
-
-    function showPopupImage(imageSrc) {
-      const popupImageContainer = document.getElementById('popup-image-container');
-      const popupImage = document.getElementById('popup-image');
-      popupImage.src = imageSrc;
-      popupImageContainer.style.display = 'flex';
-    }
-
-    function hidePopupImage() {
-      document.getElementById('popup-image-container').style.display = 'none';
-    }
-
-    function hidePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-
-    function showVideoPopup(key) {
-      const videoPopup = document.getElementById('video-popup');
-      const videoPlayer = document.getElementById('video-player');
-      videoPlayer.src = videos[key].src;
-      videoPlayer.poster = videos[key].thumbnail;
-      videoPopup.style.display = 'flex';
-      videoPlayer.play();
-      currentVideoIndex = videoKeys.indexOf(key);
-    }
-
-    function hideVideoPopup() {
-      const videoPopup = document.getElementById('video-popup');
-      const videoPlayer = document.getElementById('video-player');
-      videoPlayer.pause();
-      videoPopup.style.display = 'none';
-    }
-
-    function nextVideo() {
-      currentVideoIndex = (currentVideoIndex + 1) % videoKeys.length;
-      const nextKey = videoKeys[currentVideoIndex];
-      const videoPlayer = document.getElementById('video-player');
-      videoPlayer.src = videos[nextKey].src;
-      videoPlayer.poster = videos[nextKey].thumbnail;
-      videoPlayer.play();
-    }
-
-    function previousVideo() {
-      currentVideoIndex = (currentVideoIndex - 1 + videoKeys.length) % videoKeys.length;
-      const prevKey = videoKeys[currentVideoIndex];
-      const videoPlayer = document.getElementById('video-player');
-      videoPlayer.src = videos[prevKey].src;
-      videoPlayer.poster = videos[prevKey].thumbnail;
-      videoPlayer.play();
-    }
-
-    function scrollToHero() {
-      const heroSection = document.getElementById('hero');
-      window.scrollTo({
-        top: heroSection.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-
-    function scrollToContact() {
-      const contactSection = document.getElementById('contact');
-      window.scrollTo({
-        top: contactSection.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        const headerOffset = targetElement.offsetTop;
-
-        if (targetElement) {
-          window.scrollTo({
-            top: headerOffset,
-            behavior: 'smooth'
-          });
+            popup.style.display = 'flex';
         }
-      });
-    });
 
-    window.addEventListener('click', function (event) {
-      const popup = document.getElementById('popup');
-      const popupImageContainer = document.getElementById('popup-image-container');
-      const videoPopup = document.getElementById('video-popup');
-      if (popup && event.target === popup) {
-        hidePopup();
-      }
-      if (popupImageContainer && event.target === popupImageContainer) {
-        hidePopupImage();
-      }
-      if (videoPopup && event.target === videoPopup) {
-        hideVideoPopup();
-      }
-    });
+        function showPopupImage(imageSrc) {
+            const popupImageContainer = document.getElementById('popup-image-container');
+            const popupImage = document.getElementById('popup-image');
+            popupImage.src = imageSrc;
+            popupImageContainer.style.display = 'flex';
+        }
 
-    /* Mobile Hamburger Menu */
-    document.querySelector('.hamburger').addEventListener('click', function () {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
-</body>
-</html>
+        function hidePopupImage() {
+            document.getElementById('popup-image-container').style.display = 'none';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function showVideoPopup(key) {
+            const videoPopup = document.getElementById('video-popup');
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = videos?.[key]?.src || '';
+            videoPlayer.poster = videos?.[key]?.thumbnail || '';
+            videoPopup.style.display = 'flex';
+            videoPlayer.play();
+            currentVideoIndex = videoKeys.indexOf(key);
+        }
+
+        function hideVideoPopup() {
+            const videoPopup = document.getElementById('video-popup');
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.pause();
+            videoPopup.style.display = 'none';
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videoKeys.length;
+            const nextKey = videoKeys?.[currentVideoIndex];
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = videos?.[nextKey]?.src || '';
+            videoPlayer.poster = videos?.[nextKey]?.thumbnail || '';
+            videoPlayer.play();
+        }
+
+        function previousVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videoKeys.length) % videoKeys.length;
+            const prevKey = videoKeys?.[currentVideoIndex];
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = videos?.[prevKey]?.src || '';
+            videoPlayer.poster = videos?.[prevKey]?.thumbnail || '';
+            videoPlayer.play();
+        }
+
+        function scrollToHero() {
+            const heroSection = document.getElementById('hero');
+            window.scrollTo({
+                top: heroSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            window.scrollTo({
+                top: contactSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const headerOffset = targetElement.offsetTop;
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: headerOffset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('click', function (event) {
+            const popup = document.getElementById('popup');
+            const popupImageContainer = document.getElementById('popup-image-container');
