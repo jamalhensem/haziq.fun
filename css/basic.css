@@ -83,7 +83,7 @@ button:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('../img/hero2.jpg') no-repeat center center/cover; /* Adjusted path for img folder */
+    background: url('../img/hero2.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,10 +135,15 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    cursor: pointer; /* Added this for visual feedback */
+    cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
     width: 200px;
-    height: 150px;
+    /* Changed height to min-height and added flex properties */
+    min-height: 150px; /* Ensures a minimum height while allowing content to expand */
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Stack image and text vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     position: relative;
     box-shadow: 0 0 10px rgba(255, 69, 0, 0);
     outline: 2px solid transparent;
@@ -168,6 +173,9 @@ button:hover {
 
 .service-card h3 {
     font-size: 1.2rem;
+    /* Added this to ensure text wraps and fits within the card width */
+    word-wrap: break-word; 
+    white-space: normal;
 }
 
 .service-card:hover::after {
@@ -448,7 +456,7 @@ footer p {
 
     .service-card {
         width: 100%;
-        height: auto;
+        height: auto; /* Allow height to adjust */
     }
 
     .popup-content {
