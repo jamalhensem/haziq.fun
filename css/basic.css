@@ -122,13 +122,13 @@ button:hover {
 }
 
 .services-container {
-    /* Adjusted minmax for card width */
+    /* --- MODIFIED --- */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min card width of 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger min width for cards */
     gap: 20px;
     justify-items: center;
     margin: 20px auto;
-    max-width: 90%; /* Increased max-width to give more space for larger cards */
+    max-width: 90%; /* Allow container to be wider */
 }
 
 .service-card {
@@ -138,6 +138,7 @@ button:hover {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
+    /* --- MODIFIED --- */
     width: 300px; /* Increased card width */
     min-height: 250px; /* Increased min-height to fit larger images and content */
     display: flex;
@@ -158,6 +159,7 @@ button:hover {
 }
 
 .service-card img {
+    /* --- MODIFIED --- */
     width: 200px; /* Increased image size */
     height: 200px; /* Increased image size */
     margin-bottom: 10px;
@@ -451,17 +453,19 @@ footer p {
     }
 
     .services-container {
-        /* Adjusted for smaller screens */
+        /* --- MODIFIED for Mobile --- */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Allow smaller cards on mobile */
     }
 
     .service-card {
         width: 100%; /* Full width for mobile cards */
         height: auto;
+        /* --- MODIFIED for Mobile --- */
         min-height: 200px; /* Adjust min-height for mobile if needed */
     }
 
     .service-card img {
+        /* --- MODIFIED for Mobile --- */
         width: 150px; /* Smaller images on mobile cards */
         height: 150px;
     }
@@ -494,11 +498,12 @@ footer p {
 /* Desktop View for My Work Section */
 @media (min-width: 769px) {
     #my-work .services-container {
-        /* Ensure responsive grid for larger cards */
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* --- MODIFIED --- */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensure responsive grid for larger cards */
     }
 
     #skills .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Skills section uses smaller cards */
+        /* --- MODIFIED --- */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Skills section keeps smaller cards */
     }
 }
