@@ -122,12 +122,13 @@ button:hover {
 }
 
 .services-container {
+    /* Adjusted minmax for card width */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for card width */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min card width of 300px */
     gap: 20px;
     justify-items: center;
     margin: 20px auto;
-    max-width: 80%;
+    max-width: 90%; /* Increased max-width to give more space for larger cards */
 }
 
 .service-card {
@@ -137,8 +138,8 @@ button:hover {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    width: 220px; /* Increased card width */
-    min-height: 150px;
+    width: 300px; /* Increased card width */
+    min-height: 250px; /* Increased min-height to fit larger images and content */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,11 +158,11 @@ button:hover {
 }
 
 .service-card img {
-    width: 90px; /* Slightly increased image size */
-    height: 90px; /* Slightly increased image size */
+    width: 200px; /* Increased image size */
+    height: 200px; /* Increased image size */
     margin-bottom: 10px;
     border-radius: 5px;
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers the area, cropping if aspect ratio differs */
     transition: filter 0.3s ease;
     background-color: transparent;
 }
@@ -171,10 +172,10 @@ button:hover {
 }
 
 .service-card h3 {
-    font-size: 1.1rem; /* Slightly reduced font size for longer titles */
+    font-size: 1.1rem;
     word-wrap: break-word;
     white-space: normal;
-    line-height: 1.3; /* Added line-height for better spacing in multi-line text */
+    line-height: 1.3;
 }
 
 .service-card:hover::after {
@@ -450,12 +451,19 @@ footer p {
     }
 
     .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        /* Adjusted for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Allow smaller cards on mobile */
     }
 
     .service-card {
-        width: 100%;
+        width: 100%; /* Full width for mobile cards */
         height: auto;
+        min-height: 200px; /* Adjust min-height for mobile if needed */
+    }
+
+    .service-card img {
+        width: 150px; /* Smaller images on mobile cards */
+        height: 150px;
     }
 
     .popup-content {
@@ -486,10 +494,11 @@ footer p {
 /* Desktop View for My Work Section */
 @media (min-width: 769px) {
     #my-work .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ensure responsiveness with new width */
+        /* Ensure responsive grid for larger cards */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     #skills .services-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Skills section uses smaller cards */
     }
 }
