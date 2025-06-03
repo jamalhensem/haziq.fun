@@ -83,7 +83,7 @@ button:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('../img/hero2.jpg') no-repeat center center/cover;
+    background: url('../img/hero2.jpg') no-repeat center center/cover; /* Adjusted path for img folder */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,12 +123,11 @@ button:hover {
 
 .services-container {
     display: grid;
-    /* Increased minmax to accommodate wider cards */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     justify-items: center;
     margin: 20px auto;
-    max-width: 90%;
+    max-width: 80%;
 }
 
 .service-card {
@@ -136,15 +135,10 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    cursor: pointer;
+    cursor: pointer; /* Added this for visual feedback */
     transition: transform 0.3s ease, background-color 0.3s ease;
-    /* Increased card width */
-    width: 320px;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 200px;
+    height: 150px;
     position: relative;
     box-shadow: 0 0 10px rgba(255, 69, 0, 0);
     outline: 2px solid transparent;
@@ -159,11 +153,11 @@ button:hover {
 }
 
 .service-card img {
-    width: 200px;
-    height: 200px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
     border-radius: 5px;
-    object-fit: cover; /* This property ensures the image covers the 200x200px area, cropping if needed */
+    object-fit: cover;
     transition: filter 0.3s ease;
     background-color: transparent;
 }
@@ -173,11 +167,7 @@ button:hover {
 }
 
 .service-card h3 {
-    /* Slightly reduced font size for longer titles to fit better */
-    font-size: 1rem;
-    word-wrap: break-word;
-    white-space: normal;
-    line-height: 1.3;
+    font-size: 1.2rem;
 }
 
 .service-card:hover::after {
@@ -453,18 +443,12 @@ footer p {
     }
 
     .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .service-card {
         width: 100%;
         height: auto;
-        min-height: 200px;
-    }
-
-    .service-card img {
-        width: 150px;
-        height: 150px;
     }
 
     .popup-content {
@@ -495,10 +479,10 @@ footer p {
 /* Desktop View for My Work Section */
 @media (min-width: 769px) {
     #my-work .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
 
     #skills .services-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
 }
